@@ -8,14 +8,21 @@
 <title>회원가입</title>
 
 <script type="text/javascript">
-	
+		
+	function cofirm() {
+		var url = "/volunteerService/step4_voCreateMemberForm.do";
+				
+		location.href = url;
+	}
+
 </script>
 
 </head>
 
 <body>
 	
-	3단계..
+	아이핀 연동구간
+	<input type="button" name="confrim"  value="인증완료" onclick="cofirm()"/>
 	
 </body>
 </html>

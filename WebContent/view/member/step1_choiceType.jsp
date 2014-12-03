@@ -23,12 +23,12 @@
 			var url = "";
 			
 			if(type == 'vo'){
-				url = "/volunteerService/step2_stipulation.do";
+				url = "/volunteerService/step2_voStipulation.do";
 			}else{
 				url = "";
 			}
 			
-			location.href=url;
+			location.href = url;
 		}
 		
 	</script>
@@ -38,38 +38,38 @@
 
 <body>
 
-	<form name="step1_choiceType">
+	<form name="step1_choicetype">
 	
 		<table>
 		
 			<tbody>
 				<tr>
-					<td bgColor=#ffffff colSpan=3>
+					<td bgcolor=#ffffff colspan=3>
 						<input onclick="group_change();" type="radio" value="volunteer" name="group" checked> 일반
 						<input onclick="group_change();" type="radio" value="demander" name="group"> 기관
 					</td>
 				</tr>
 				
-				<tr vAlign=top>
+				<tr valign=top>
 				
-					<td style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px" colSpan=4>
+					<td style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px" colspan=4>
 					
-						<DIV id=volunteer>
-							<TABLE cellSpacing=1 cellPadding=5 width="100%">
-								<TBODY>
-									<TR>
-									<TD align=right width=149 bgColor=#fafcfd height=20><FONT color=#555555>* 이름</FONT></TD>
-										<TD bgColor=#ffffff>
-											<FONT color=#555555 size=2>
-												<INPUT style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid" maxLength=25 size=15 name="vol_name" option="isNumber"> 
-											</FONT>
-										</TD>
-									</TR>
+						<div id=volunteer>
+							<table cellspacing=1 cellpadding=5 width="100%">
+								<tbody>
+									<tr>
+									<td align=right width=149 bgcolor=#fafcfd height=20><font color=#555555>* 이름</font></td>
+										<td bgcolor=#ffffff>
+											<font color=#555555 size=2>
+												<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=25 size=15 name="vol_name" option="isnumber"> 
+											</font>
+										</td>
+									</tr>
 									
-									<TR>
-									<TD align=right width=149 bgColor=#fafcfd height=20><FONT color=#555555>* 휴대전화</FONT></TD>
-										<TD bgColor=#ffffff>
-											<FONT color=#555555 size=2>
+									<tr>
+									<td align=right width=149 bgcolor=#fafcfd height=20><font color=#555555>* 휴대전화</font></td>
+										<td bgcolor=#ffffff>
+											<font color=#555555 size=2>
 												<select name="mbtlnum1" id="mbtlnum1">
 													<option value="">선택하세요</option>
 													<option value="010" selected>010</option>
@@ -79,11 +79,11 @@
 													<option value="018" >018</option>
 													<option value="019" >019</option>
 												</select>
-												<INPUT style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid" maxLength=4 size=8 name=volunteer_register1 option="isNumber"> - 
-												<INPUT style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid" maxLength=4 size=8 name=volunteer_register2 option="isNumber">
-											</FONT>
-										</TD>
-									</TR>
+												<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=4 size=8 name=volunteer_register1 option="isnumber"> - 
+												<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=4 size=8 name=volunteer_register2 option="isnumber">
+											</font>
+										</td>
+									</tr>
 									
 									<tr>
 										<td>
@@ -91,30 +91,30 @@
 										</td>
 									</tr>
 									
-								</TBODY>
-							</TABLE>
-						</DIV>
+								</tbody>
+							</table>
+						</div>
 						
-						<DIV id=demander style="DISPLAY: none">
-							<TABLE cellSpacing=1 cellPadding=5 width="100%">
-								<TBODY>
-									<TR>
-										<TD align=right width=149 bgColor=#fafcfd height=20>* 기관명</TD>
-										<TD bgColor=#ffffff>
-											<FONT color=#555555 size=2><INPUT id=demander style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid" maxLength=16 size=16 name=demander> 
-											</FONT>
-										</TD>
-									</TR>
-									<TR>
-										<TD align=right bgColor=#fafcfd height=20>* 사업자등록번호</TD>
-										<TD bgColor=#ffffff colSpan=3>
-											<FONT color=#555555 size=2>
-											<INPUT style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid" maxLength=3 size=4 name=demander_register1 option="isNumber"> - 
-											<INPUT style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid" maxLength=3 size=4 name=demander_register2 option="isNumber"> - 
-											<INPUT style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; BORDER-BOTTOM: gray 1px solid" maxLength=5 size=6 name=demander_register3 option="isNumber"> 
-											</FONT>
-										</TD>
-									</TR>
+						<div id=demander style="display: none">
+							<table cellspacing=1 cellpadding=5 width="100%">
+								<tbody>
+									<tr>
+										<td align=right width=149 bgcolor=#fafcfd height=20>* 기관명</td>
+										<td bgcolor=#ffffff>
+											<font color=#555555 size=2><input id=demander style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=16 size=16 name=demander> 
+											</font>
+										</td>
+									</tr>
+									<tr>
+										<td align=right bgcolor=#fafcfd height=20>* 사업자등록번호</td>
+										<td bgcolor=#ffffff colspan=3>
+											<font color=#555555 size=2>
+											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=3 size=4 name=demander_register1 option="isnumber"> - 
+											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=3 size=4 name=demander_register2 option="isnumber"> - 
+											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=5 size=6 name=demander_register3 option="isnumber"> 
+											</font>
+										</td>
+									</tr>
 									
 									<tr>
 										<td>
@@ -122,9 +122,9 @@
 										</td>
 									</tr>
 									
-								</TBODY>
-							</TABLE>
-						</DIV>
+								</tbody>
+							</table>
+						</div>
 						
 					</td>
 					

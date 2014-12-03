@@ -49,28 +49,28 @@ public class CreateVolunteer {
 	
 	
 	//회원가입.자원봉사자 step2 - 약관동의
-	@RequestMapping("/step2_stipulation.do")
+	@RequestMapping("/step2_voStipulation.do")
 	public String step2_stipulation() throws Exception{
 		return "/view/member/volunteer/step2_stipulation.jsp";
 	}
 	
 	
 	//회원가입.자원봉사자 step3 - 본인인증
-	@RequestMapping("/step3_certification.do")
+	@RequestMapping("/step3_voCertification.do")
 	public String step3_certification() throws Exception{
 		return "/view/member/volunteer/step3_certification.jsp";
 	}
 	
 	
 	//회원가입.자원봉사자 step4 - 폼
-	@RequestMapping("/step4_createMemberForm.do")
+	@RequestMapping("/step4_voCreateMemberForm.do")
 	public String step4_createMember() throws Exception{
 		return "/view/member/volunteer/step4_createMember.jsp";
 	}
 	
 	
 	//회원가입.자원봉사자 last - DB insert
-	@RequestMapping("/step5_createMember.do")
+	@RequestMapping("/step5_voCreateMember.do")
 	public String memberCreate(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
 		
 		//인코딩정의

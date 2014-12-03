@@ -33,7 +33,7 @@
 
 <body style="padding-left: 50px">
 	
-	<form name="step4_createMemberForm" action="/volunteerService/step5_createMember.do" method="post">
+	<form name="step4_voCreateMemberForm" action="/volunteerService/step5_createMember.do" method="post">
 		
 		<!-- 회원가입 입력폼 테이블 -->
 		<table border="0" align="left" width="700" >
