@@ -8,7 +8,7 @@
 	
 	<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
 	<script type="text/javascript">
-	
+		
 		//다음 주소 API
 		function openDaumPostcode() {
 	    	new daum.Postcode({
@@ -145,17 +145,15 @@
 					<input type="text" name="vol_email" id="vol_email" size="45" maxlength="30"/>
 				</td>
 			</tr>
-			
+		
 			<tr>
 				<td height="8"colspan="2" align="center">
 					<!-- 
 					<input type="submit" name="submit" value="선택사항입력"/>
 					 -->
-					 
 					<input type="submit" name="submit" value="저장"/>
 				</td>
 			</tr>
-			
 			
 		</table>
 		<!-- .//회원가입 입력폼 테이블 -->
