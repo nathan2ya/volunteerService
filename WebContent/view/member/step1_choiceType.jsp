@@ -35,6 +35,7 @@
 		//일반, 기관 다음Step
 		function cofirm(type){
 			var url = "";
+			
 			if(type == 'vo'){
 				url = "/volunteerService/step2_voStipulation.do";
 			}else if(type == 'de'){
@@ -132,9 +133,9 @@
 										<td align=right bgcolor=#fafcfd height=20>* 사업자등록번호</td>
 										<td bgcolor=#ffffff colspan=3>
 											<font color=#555555 size=2>
-											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=3 size=4 name=demander_register1 option="isnumber"> - 
-											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=3 size=4 name=demander_register2 option="isnumber"> - 
-											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=5 size=6 name=demander_register3 option="isnumber"> 
+											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=4 size=6 name=demander_register1 option="isnumber"> - 
+											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=4 size=6 name=demander_register2 option="isnumber"> - 
+											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=4 size=6 name=demander_register3 option="isnumber"> 
 											</font>
 										</td>
 									</tr>
@@ -157,6 +158,6 @@
 		</table>
 		
 	</form>
-
+	
 </body>
 </html>

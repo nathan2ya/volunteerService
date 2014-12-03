@@ -70,7 +70,7 @@ public class CreateVolunteer {
 	
 	
 	//회원가입.자원봉사자 last - DB insert
-	@RequestMapping("/step5_voCreateMember.do")
+	@RequestMapping("/voCreateMemberBasic.do")
 	public String memberCreate(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
 		
 		//인코딩정의
