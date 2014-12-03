@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import common.lib.VolunteerCode;
 
 
 /*
@@ -75,22 +76,35 @@ public class CreateVolunteer {
 		//인코딩정의
 		request.setCharacterEncoding("euc-kr");
 		
-		//DTO set
+		//소속센터 시퀀스 (향후 변경될 수 있음)
+		int vol_center_seq = Integer.parseInt(request.getParameter("vol_center_seq"));
+		
+		//자원봉사코드
+		VolunteerCode volunteerCode = new VolunteerCode("11","22","33","44");
+		String vol_code = volunteerCode.createVolunteerCode();
+		
+		//우편번호
 		String post1 = request.getParameter("post1"); // 우편번호 앞자리
 		String post2 = request.getParameter("post2"); // 우편번호 뒷자리
-		String vol_zipcode = post1 + post2;
+		String vol_zipcode = post1 + "-" + post2; // 앞자리 - 뒷자리
+		
+		//현재일시
+		Calendar today = Calendar.getInstance(); //날짜
+		
+		// DTO set
+		dto.setVol_center_seq(vol_center_seq);
+		dto.setVol_code(vol_code);
 		dto.setVol_zipcode(vol_zipcode);
 		dto.setVol_type_yn("0");
 		dto.setVol_company_yn("0");
 		dto.setVol_admin_yn("0");
-		
-		//Calendar today = Calendar.getInstance(); //날짜
-		//paramClass.setReg_date(today.getTime());
+		dto.setVol_reg_date(today.getTime());
+		dto.setVol_mod_date(today.getTime());
 		
 		//DB insert
-		//sqlMapper.insert("Volunteer.insertVolunteerBasic",dto);
+		sqlMapper.insert("Volunteer.insertVolunteerBasic", dto);
 		return "redirect:/main.do";
 	}
 	
 	
-} //end of class
+}//end of class

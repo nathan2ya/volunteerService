@@ -50,7 +50,7 @@
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">성별</td>
 				<td width="550" height="8" align="left">
 					남
-					<input type="hidden" name="vol_sex" id="vol_sex" value="남"/>
+					<input type="hidden" name="vol_sex" id="vol_sex" value="1"/>
 				</td>
 			</tr>
 			
@@ -106,7 +106,14 @@
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">힌트 답변</td>
 				<td width="550" height="8" align="left">
 					<input type="text" name="vol_pw_ans" id="vol_pw_ans" size="30" maxlength="20" />
-					<br/>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="150" height="8" align="right" bgcolor="#D5D5D5">소속 센터</td>
+				<td width="550" height="8" align="left">
+					1차선택, 2차선택, 3차선택 만들예정 (현재 히든값으로 들어간다.)
+					<input type="hidden" name="vol_center_seq" id="vol_center_seq" value="777" />
 				</td>
 			</tr>
 			
@@ -144,6 +151,7 @@
 					<!-- 
 					<input type="submit" name="submit" value="선택사항입력"/>
 					 -->
+					 
 					<input type="submit" name="submit" value="저장"/>
 				</td>
 			</tr>

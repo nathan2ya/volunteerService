@@ -235,4 +235,5 @@ public class VolunteerDTO {
 	public void setVol_mod_date(Date vol_mod_date) {
 		this.vol_mod_date = vol_mod_date;
 	}
-}
+	
+}//end of class

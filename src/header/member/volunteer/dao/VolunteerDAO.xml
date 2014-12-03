@@ -44,6 +44,14 @@
 
 	
 	<!-- insert -->
+	<insert id="insertVolunteerBasic" parameterClass="volunteerDTO">
+		insert into TB_VOLUNTEER
+			( volunteer_id, vol_center_seq, vol_code, vol_name, vol_sex, vol_birthday, vol_pw, vol_pw_ask, vol_pw_ans, 
+			vol_zipcode, vol_addr_bsc, vol_addr_dtl, vol_email, vol_type_yn, vol_company_yn, vol_admin_yn, vol_reg_date, vol_mod_date )
+		values
+			( #volunteer_id#, #vol_center_seq#, #vol_code#, #vol_name#, #vol_sex#, #vol_birthday#, #vol_pw#, #vol_pw_ask#, #vol_pw_ans#, 
+			#vol_zipcode#, #vol_addr_bsc#, #vol_addr_dtl#, #vol_email#, #vol_type_yn#, #vol_company_yn#, #vol_admin_yn#, #vol_reg_date#, #vol_mod_date# )
+	</insert>
 	
 	
 	

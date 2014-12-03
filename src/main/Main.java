@@ -15,7 +15,6 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 /*
  * 작성자: 류재욱
  * 설  명: volunService 프로젝트의 매인페이지.
- * 용  도: 매인으로 보내기 위함.
 */
 
 @Controller
@@ -41,4 +40,4 @@ public class Main {
 		return "/view/main/main.jsp";
 	}
 	
-} //end of class
+}//end of class

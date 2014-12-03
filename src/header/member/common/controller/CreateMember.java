@@ -14,8 +14,8 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 
 /*
- * 작성자: 류재욱
- * 설  명: 회원가입시 일반, 기관 에서 공통으로 쓰는 컨트롤러
+ * 작성자 : 류재욱
+ * 설  명 : 자원봉사자, 수요처 공통 회원가입 컨트롤러
 */
 
 
@@ -46,4 +46,4 @@ public class CreateMember {
 	
 	
 	
-} //end of class
+}//end of class
