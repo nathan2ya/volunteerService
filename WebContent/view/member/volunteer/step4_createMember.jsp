@@ -28,15 +28,15 @@
 </head>
 
 
-<h1 align="center">자원봉사자 회원가입(temp)</h1>
+<h2 align="left">자원봉사자 회원가입(임시)</h2>
 
 
 <body style="padding-left: 50px">
 	
-	<form name="step4_createMember" action="/volunService/step4_createMember.do" method="post">
+	<form name="step4_createMemberForm" action="/volunteerService/step5_createMember.do" method="post">
 		
 		<!-- 회원가입 입력폼 테이블 -->
-		<table border="0" align="center" width="700" >
+		<table border="0" align="left" width="700" >
 		
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">이름</td>

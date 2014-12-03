@@ -9,7 +9,7 @@
 	
 	//회원가입
 	function goStep1_choiceType() {
-		var url = "/volunService/step1_choiceType.do";
+		var url = "/volunteerService/step1_choiceType.do";
 		location.href=url;
 	}
 

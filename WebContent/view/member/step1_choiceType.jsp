@@ -23,7 +23,7 @@
 			var url = "";
 			
 			if(type == 'vo'){
-				url = "/volunService/step2_stipulation.do";
+				url = "/volunteerService/step2_stipulation.do";
 			}else{
 				url = "";
 			}

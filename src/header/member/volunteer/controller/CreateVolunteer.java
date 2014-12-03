@@ -33,7 +33,6 @@ public class CreateVolunteer {
 	private String gun; // 군/구 명
 	private String dong; // 동 명 
 	
-	
 	//DB커넥트 인스턴스 변수
 	SqlMapClientTemplate ibatis = null;
 	public static Reader reader;
@@ -63,19 +62,20 @@ public class CreateVolunteer {
 	
 	
 	//회원가입.자원봉사자 step4 - 폼
-	@RequestMapping("/step4_createMember.do")
+	@RequestMapping("/step4_createMemberForm.do")
 	public String step4_createMember() throws Exception{
 		return "/view/member/volunteer/step4_createMember.jsp";
 	}
 	
 	
 	//회원가입.자원봉사자 last - DB insert
-	@RequestMapping("/step4_createMember.do")
+	@RequestMapping("/step5_createMember.do")
 	public String memberCreate(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
 		
 		//인코딩정의
 		request.setCharacterEncoding("euc-kr");
 		
+		//DTO set
 		String post1 = request.getParameter("post1"); // 우편번호 앞자리
 		String post2 = request.getParameter("post2"); // 우편번호 뒷자리
 		String vol_zipcode = post1 + post2;
@@ -87,25 +87,8 @@ public class CreateVolunteer {
 		//Calendar today = Calendar.getInstance(); //날짜
 		//paramClass.setReg_date(today.getTime());
 		
-		
-		//insert 항목 확인
-		System.out.println(dto.getVol_name());
-		System.out.println(dto.getVol_sex());
-		System.out.println(dto.getVol_birthday());
-		System.out.println(dto.getVolunteer_id());
-		System.out.println(dto.getVol_pw());
-		System.out.println(dto.getVol_pw_ask());
-		System.out.println(dto.getVol_pw_ans());
-		System.out.println(dto.getVol_zipcode());
-		System.out.println(dto.getVol_addr_bsc());
-		System.out.println(dto.getVol_addr_dtl());
-		System.out.println(dto.getVol_type_yn());
-		System.out.println(dto.getVol_company_yn());
-		System.out.println(dto.getVol_admin_yn());
-		//.insert 항목 확인
-		
+		//DB insert
 		//sqlMapper.insert("Volunteer.insertVolunteerBasic",dto);
-		
 		return "redirect:/main.do";
 	}
 	

@@ -24,7 +24,7 @@
 
 <body>
 	
-	<form action="/volunService/step3_certification.do" method="POST" onsubmit="return checkCheckBox(this)">
+	<form action="/volunteerService/step3_certification.do" method="POST" onsubmit="return checkCheckBox(this)">
 		
 		약관여기에..<br/><br/>
 		
