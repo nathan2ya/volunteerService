@@ -8,8 +8,10 @@
 	<title>회원가입</title>
 	
 	<script language=JavaScript>
+	
+		//일반, 기관 선택
 		function group_change(){
-			if (document.forms[0].group[0].checked == true){
+			if(document.forms[0].group[0].checked == true){
 				volunteer.style.display = "block";
 				demander.style.display = "none";
 			}else if(document.forms[0].group[1].checked == true){
@@ -18,16 +20,26 @@
 			}
 		}
 		
+		//일반.이메일 선택
+		function selectEmail(form){
+	        if(form.email_select.value == '1'){
+	        	form.email2.readOnly = false;
+	        	form.email2.value = '';
+	        	form.email2.focus();
+	        }else{
+	        	form.email2.readOnly = true;
+	        	form.email2.value = form.email_select.value;
+        	}
+		}
 		
-		function cofirm(type) {
+		//일반, 기관 다음Step
+		function cofirm(type){
 			var url = "";
-			
 			if(type == 'vo'){
 				url = "/volunteerService/step2_voStipulation.do";
-			}else{
-				url = "";
+			}else if(type == 'de'){
+				url = "/volunteerService/step2_deStipulation.do";
 			}
-			
 			location.href = url;
 		}
 		
@@ -67,20 +79,31 @@
 									</tr>
 									
 									<tr>
-									<td align=right width=149 bgcolor=#fafcfd height=20><font color=#555555>* 휴대전화</font></td>
+									<td align=right width=149 bgcolor=#fafcfd height=20><font color=#555555>* 이메일</font></td>
 										<td bgcolor=#ffffff>
 											<font color=#555555 size=2>
-												<select name="mbtlnum1" id="mbtlnum1">
-													<option value="">선택하세요</option>
-													<option value="010" selected>010</option>
-													<option value="011" >011</option>
-													<option value="016" >016</option>
-													<option value="017" >017</option>
-													<option value="018" >018</option>
-													<option value="019" >019</option>
+												<input type="text" name="email1" id="email1" class="box" size="15"> @ 
+												<input type="text" name="email2" id="email2" class="box" size="20">
+												
+												<select name="email_select" id="email_select" class="box" onChange="selectEmail(this.form);">
+												    <option value="" selected>선택하세요</option>
+												    <option value="empal.com">empal.com</option>
+												    <option value="dreamwiz.com">dreamwiz.com</option>
+												    <option value="naver.com">naver.com</option>
+												    <option value="hotmail.com">hotmail.com</option>
+												    <option value="chollian.net">chollian.net</option>
+												    <option value="freechal.com">freechal.com</option>
+												    <option value="hanafos.com">hanafos.com</option>
+												    <option value="kebi.com">kebi.com</option>
+												    <option value="korea.com">korea.com</option>
+												    <option value="lycos.co.kr">lycos.co.kr</option>
+												    <option value="netian.com">netian.com</option>
+												    <option value="netsgo.com">netsgo.com</option>
+												    <option value="unitel.co.kr">unitel.co.kr</option>
+												    <option value="yahoo.co.kr">yahoo.co.kr</option>
+												    <option value="1">직접입력</option>
 												</select>
-												<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=4 size=8 name=volunteer_register1 option="isnumber"> - 
-												<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=4 size=8 name=volunteer_register2 option="isnumber">
+																								 
 											</font>
 										</td>
 									</tr>
