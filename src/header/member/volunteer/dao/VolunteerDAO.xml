@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap namespace="Volunteer">
+
+	<typeAlias alias="volunteerDTO" type="header.member.volunteer.dto.VolunteerDTO" />
+	
+	<!-- 리절트 맵 정의 -->
+	<resultMap id="volunteerRes" class="volunteerDTO">
+		<result property="volunteer_id" column="volunteer_id" />
+		<result property="vol_center_seq" column="vol_center_seq" />
+		<result property="vol_code" column="vol_code" />
+		<result property="vol_name" column="vol_name" />
+		<result property="vol_sex" column="vol_sex" />
+		<result property="vol_birthday" column="vol_birthday" />
+		<result property="vol_pw" column="vol_pw" />
+		<result property="vol_pw_ask" column="vol_pw_ask" />
+		<result property="vol_pw_ans" column="vol_pw_ans" />
+		<result property="vol_zipcode" column="vol_zipcode" />
+		<result property="vol_addr_bsc" column="vol_addr_bsc" />
+		<result property="vol_addr_dtl" column="vol_addr_dtl" />
+		<result property="vol_email" column="vol_email" />
+		<result property="vol_phone_1" column="vol_phone_1" />
+		<result property="vol_phone_2" column="vol_phone_2" />
+		<result property="vol_hope_center_code" column="vol_hope_center_code" />
+		<result property="vol_hope_plc_1" column="vol_hope_plc_1" />
+		<result property="vol_hope_plc_2" column="vol_hope_plc_2" />
+		<result property="vol_hope_sev_1" column="vol_hope_sev_1" />
+		<result property="vol_hope_sev_2" column="vol_hope_sev_2" />
+		<result property="vol_hope_sev_3" column="vol_hope_sev_3" />
+		<result property="vol_job" column="vol_job" />
+		<result property="vol_hope_date" column="vol_hope_date" />
+		<result property="vol_hope_str_time" column="vol_hope_str_time" />
+		<result property="vol_hope_end_time" column="vol_hope_end_time" />
+		<result property="vol_spec_dtl" column="vol_spec_dtl" />
+		<result property="vol_group_yn" column="vol_group_yn" />
+		<result property="vol_type_yn" column="vol_type_yn" />
+		<result property="vol_company_yn" column="vol_company_yn" />
+		<result property="vol_admin_yn" column="vol_admin_yn" />
+		<result property="vol_reg_date" column="vol_reg_date" />
+		<result property="vol_mod_date" column="vol_mod_date" />
+	</resultMap>
+
+
+	
+	<!-- insert -->
+	
+	
+	
+	<!-- select -->
+
+
+
+	<!-- update -->
+	
+	
+	
+	<!-- delete -->
+	
+	
+	
+</sqlMap>
