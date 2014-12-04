@@ -39,9 +39,9 @@ public class CreateMember {
 	
 	
 	//회원가입 step1
-	@RequestMapping("/step1_choiceType.do")
+	@RequestMapping("/step1_chooseType.do")
 	public String step1_choiceType() throws Exception{
-		return "/view/member/step1_choiceType.jsp";
+		return "/view/member/step1_chooseType.jsp";
 	}
 	
 	

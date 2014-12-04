@@ -11,8 +11,7 @@
 		
 		//선택사항 입력, 저장 버튼 구분
 		function goCreate(type){
-			var url = "";
-			var confrimType = document.getElementById("confrimType").value;
+			document.getElementById("confrimType").value = type;
 			step4_voCreateMemberForm.submit();
 		}
 		

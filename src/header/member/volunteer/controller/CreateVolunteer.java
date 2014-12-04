@@ -79,7 +79,7 @@ public class CreateVolunteer {
 		//소속센터 시퀀스 (향후 변경될 수 있음)
 		int vol_center_seq = Integer.parseInt(request.getParameter("vol_center_seq"));
 		
-		//자원봉사코드
+		//자원봉사코드 (임시로 파라미터 4개 전송)
 		VolunteerCode volunteerCode = new VolunteerCode("11","22","33","44");
 		String vol_code = volunteerCode.createVolunteerCode();
 		
@@ -104,9 +104,15 @@ public class CreateVolunteer {
 		//DB insert
 		sqlMapper.insert("Volunteer.insertVolunteerBasic", dto);
 		
-		//저장 . 선택사항입력 선택여부에 따라 다음 이동 url이 달라진다.
+		/*
+		 * 저장 버튼을 선택했을 경우, 회원가입완료 페이지로 이동
+		 * 선택사항 입력 버튼을 선택했을 경우, 선택사항입력 페이지로 이동
+		*/
 		String url = "";
 		String confirmType = request.getParameter("confirmType");
+		
+		System.out.println("뭐지"+confirmType);
+		
 		if(confirmType.equals("save")){
 			url = "redirect:/main.do";
 		}else{
