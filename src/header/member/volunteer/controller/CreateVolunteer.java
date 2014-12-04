@@ -30,9 +30,8 @@ import common.lib.VolunteerCode;
 @Controller
 public class CreateVolunteer {
 	
-	private String city; // 도/시 명 (ex. 경상남도 or 서울특별시)
-	private String gun; // 군/구 명
-	private String dong; // 동 명 
+	private String url; // return URL
+	private String vol_code; // 자원봉사코드
 	
 	//DB커넥트 인스턴스 변수
 	SqlMapClientTemplate ibatis = null;
@@ -73,28 +72,20 @@ public class CreateVolunteer {
 	@RequestMapping("/voCreateMemberBasic.do")
 	public String voCreateMemberBasic(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
 		
-		//인코딩정의
 		request.setCharacterEncoding("euc-kr");
+		Calendar today = Calendar.getInstance();
 		
-		//소속센터 시퀀스 (향후 변경될 수 있음)
+		//소속센터 시퀀스 //TODO 소속센터 시퀀스 입력부분부터 다시 해야함
 		int vol_center_seq = Integer.parseInt(request.getParameter("vol_center_seq"));
 		
-		//자원봉사코드 (임시로 파라미터 4개 전송)
+		//자원봉사코드 생성 //TODO 자원봉사코드 생성 프로세스 정의 후, 아래 createVolunteerCode 도 재정의
 		VolunteerCode volunteerCode = new VolunteerCode("11","22","33","44");
-		String vol_code = volunteerCode.createVolunteerCode();
+		vol_code = volunteerCode.createVolunteerCode();
 		
-		//우편번호
-		String post1 = request.getParameter("post1"); // 우편번호 앞자리
-		String post2 = request.getParameter("post2"); // 우편번호 뒷자리
-		String vol_zipcode = post1 + "-" + post2; // 앞자리 - 뒷자리
-		
-		//현재일시
-		Calendar today = Calendar.getInstance(); //날짜
-		
-		// DTO set
+		//DTO set 
 		dto.setVol_center_seq(vol_center_seq);
 		dto.setVol_code(vol_code);
-		dto.setVol_zipcode(vol_zipcode);
+		dto.setVol_zipcode(request.getParameter("post1") + "-" + request.getParameter("post2")); //우편번호(앞자리 - 뒷자리)
 		dto.setVol_type_yn("0");
 		dto.setVol_company_yn("0");
 		dto.setVol_admin_yn("0");
@@ -103,30 +94,27 @@ public class CreateVolunteer {
 		
 		//DB insert
 		sqlMapper.insert("Volunteer.insertVolunteerBasic", dto);
-		
 		/*
-		 * 저장 버튼을 선택했을 경우, 회원가입완료 페이지로 이동
-		 * 선택사항 입력 버튼을 선택했을 경우, 선택사항입력 페이지로 이동
+		 * 2가지 경우의 return URL
+		 * 1. [저장] 버튼 선택 : 회원가입완료 페이지로 이동
+		 * 2. [선택사항 입력] 버튼 선택 : 선택사항입력 페이지로 이동
 		*/
-		String url = "";
-		String confirmType = request.getParameter("confirmType");
-		
-		System.out.println("뭐지"+confirmType);
-		
-		if(confirmType.equals("save")){
-			url = "redirect:/main.do";
-		}else{
-			url = "redirect:/step5_voCreateMemberDetailForm.do";
+		if(request.getParameter("confirmType").equals("save")){
+			url = "redirect:/step6_complete.do";
+		}else{ // equals("more");
+			url = "redirect:/step5_voCreateMemberDetailForm.do?volunteer_id="+dto.getVolunteer_id();
 		}
 		return url;
 	}
 	
 	//회원가입.자원봉사자 step5 - Detail 폼
 	@RequestMapping("/step5_voCreateMemberDetailForm.do")
-	public String step5_voCreateMemberDetailForm() throws Exception{
-		return "/view/member/volunteer/step5_voCreateMemberDetail.jsp";
+	public String step5_voCreateMemberDetailForm(HttpServletRequest request) throws Exception{
+		request.setAttribute("volunteer_id", request.getParameter("volunteer_id"));
+		return "/view/member/volunteer/step5_createMemberDetail.jsp";
 	}
 	
+	//회원가입.자원봉사자 detail - DB update
 	
 	
 }//end of class

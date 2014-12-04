@@ -45,5 +45,11 @@ public class CreateMember {
 	}
 	
 	
+	//회원가입 step6
+	@RequestMapping("/step6_complete.do")
+	public String step6_complete() throws Exception{
+		return "/view/member/step6_complete.jsp";
+	}
+	
 	
 }//end of class

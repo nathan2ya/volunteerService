@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	선택사항 입력
+	선택사항 입력 ${volunteer_id}
 </body>
 </html>
