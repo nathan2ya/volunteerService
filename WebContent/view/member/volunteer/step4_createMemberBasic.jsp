@@ -9,9 +9,13 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
 	<script type="text/javascript">
 		
-		//선택사항 입력, 저장 버튼 구분
+		//submit
 		function goCreateBasic(type){
+			//선택사항입력 or 저장
 			document.getElementById("confrimType").value = type;
+			
+			//우편번호 형식으로 변경 = 앞자리-뒷자리
+			document.getElementById("vol_zipcode").value = document.getElementById("post1").value + "-" +  document.getElementById("post2").value;
 			step4_voCreateMemberForm.submit();
 		}
 		
@@ -121,6 +125,7 @@
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">우편번호</td>
 				<td width="550" height="8" align="left">
 					<input type="text" id="post1" name="post1" size="8" class="d_form mini"> - <input type="text" id="post2" name="post2" size="8" class="d_form mini">
+					<input type="hidden" name="vol_zipcode" id="vol_zipcode" value=""/>
 				    <input type="button" onclick="openDaumPostcode()" value="우편번호 찾기" class="d_btn">
 				</td>
 			</tr>

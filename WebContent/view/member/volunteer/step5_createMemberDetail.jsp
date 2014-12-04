@@ -9,9 +9,20 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
 	<script type="text/javascript">
 		
-		//저장
+		//submit
 		function goCreateDetail(){
-			step5_createMemberDetail.submit();
+			//체크된 희망요일
+			var days = "";
+			if(document.getElementById("mon").checked){ days += '1'; }
+			if(document.getElementById("tue").checked){ days += '2'; }
+			if(document.getElementById("wen").checked){ days += '3'; }
+			if(document.getElementById("thu").checked){ days += '4'; }
+			if(document.getElementById("fri").checked){ days += '5'; }
+			if(document.getElementById("sat").checked){ days += '6'; }
+			if(document.getElementById("sun").checked){ days += '7'; }
+			document.getElementById("vol_hope_date").value = days.split("", days.length);
+			
+			//step5_createMemberDetail.submit();
 		}
 		
 		//주소 선택
@@ -90,24 +101,9 @@
 
 
 
-vol_hope_center_code	봉사희망지역(소속센터)
-vol_hope_plc_1	봉사희망지역(선택1)
-vol_hope_plc_2	봉사희망지역(선택2)
-vol_hope_sev_1	희망분야1
-vol_hope_sev_2	희망분야2
-vol_hope_sev_3	희망분야3
-vol_job	직업
-vol_hope_date	희망요일
-vol_hope_str_time	희망 시작 시간
-vol_hope_end_time	희망 종료 시간
-vol_spec_dtl	개인전문분야
-vol_group_yn	단체가입여부
-
-
-
 <body style="padding-left: 50px">
 	
-	<form name="step5_createMemberDetail" action="/volunteerService/voCreateMemberBasic.do" method="post">
+	<form name="step5_createMemberDetail" action="/volunteerService/voCreateMemberDetail.do" method="post">
 		
 		<!-- 자원봉사자 회원가입(선택사항) -->
 		<table border="0" align="left" width="700" >
@@ -115,7 +111,7 @@ vol_group_yn	단체가입여부
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">휴대폰번호</td>
 				<td width="500" height="8" align="left">
-					<select name = "vol_phone_1">
+					<select name = "vol_phone_1_1">
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="016">016</option>
@@ -123,13 +119,15 @@ vol_group_yn	단체가입여부
 						<option value="018">018</option>
 						<option value="019">019</option>
 					</select>
+					<input type="text" name="vol_phone_1_2" id="vol_phone_1_2" size="6" maxlength="4" />
+					<input type="text" name="vol_phone_1_3" id="vol_phone_1_3" size="6" maxlength="4" />
 				</td>
 			</tr>
 			
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">유선전화번호</td>
 				<td width="500" height="8" align="left">
-					<select name = "vol_phone_2">
+					<select name = "vol_phone_2_1">
 						<option value="02">02</option>
 						<option value="031">031</option>
 						<option value="032">032</option>
@@ -161,6 +159,8 @@ vol_group_yn	단체가입여부
 						<option value="018">018</option>
 						<option value="019">019</option>
 					</select>
+					<input type="text" name="vol_phone_2_2" id="vol_phone_2_2" size="6" maxlength="4" />
+					<input type="text" name="vol_phone_2_3" id="vol_phone_2_3" size="6" maxlength="4" />
 				</td>
 			</tr>
 			
@@ -194,12 +194,153 @@ vol_group_yn	단체가입여부
 				</td>
 			</tr>
 			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">봉사희망지역(선택1)</td>
+				<td width="500" height="8" align="left">
+					//TODO vol_hope_plc_1 // 봉사희망지역(소속센터) 필드가 완료되면 개발예정
+				</td>
+			</tr>
 			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">봉사희망지역(선택2)</td>
+				<td width="500" height="8" align="left">
+					//TODO vol_hope_plc_2 // 봉사희망지역(소속센터) 필드가 완료되면 개발예정
+				</td>
+			</tr>
 			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">희망분야1</td>
+				<td width="500" height="8" align="left">
+					//TODO vol_hope_sev_1	
+				</td>
+			</tr>
 			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">희망분야2</td>
+				<td width="500" height="8" align="left">
+					//TODO vol_hope_sev_2	
+				</td>
+			</tr>
 			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">희망분야3</td>
+				<td width="500" height="8" align="left">
+					//TODO vol_hope_sev_3
+				</td>
+			</tr>
 			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">직업</td>
+				<td width="500" height="8" align="left">
+					<select name="vol_job" id="vol_job">
+						<option value="0" >선택하세요</option>
+						<option value="1" >공무원</option>
+						<option value="2" >사무직</option>
+						<option value="3" >전문직</option>
+						<option value="4" >서비스직</option>
+						<option value="5" >자영업</option>
+						<option value="6" >농수산업</option>
+						<option value="7" >군인</option>
+						<option value="8" >주부</option>
+						<option value="9" >무직</option>
+						<option value="10" >기타</option>
+						<option value="11" >초등학생</option>
+						<option value="12" >중학생</option>
+						<option value="13" >고등학생</option>
+						<option value="14" >대학(원)생</option>
+					</select>
+				</td>
+			</tr>
 			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">희망요일</td>
+				<td width="500" height="8" align="left">
+					<input type="checkbox" id="mon" name="mon" value="1" /> <label for="mon">월</label>
+					<input type="checkbox" id="tue" name="tue" value="2" /> <label for="tue">화</label>
+					<input type="checkbox" id="wen" name="wen" value="3" /> <label for="wen">수</label>
+					<input type="checkbox" id="thu" name="thu" value="4" /> <label for="thu">목</label>
+					<input type="checkbox" id="fri" name="fri" value="5" /> <label for="fri">금</label>
+					<input type="checkbox" id="sat" name="sat" value="6" /> <label for="sat">토</label>
+					<input type="checkbox" id="sun" name="sun" value="7" /> <label for="sun">일</label>
+					<input type="hidden" name="vol_hope_date" id="vol_hope_date" value=""/>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">희망 시작 시간</td>
+				<td width="500" height="8" align="left">
+					<select name="vol_hope_str_time" id="vol_hope_str_time">
+						<option value="99" selected>선택</option>
+						<option value="0">00</option>
+						<option value="1">01</option>
+						<option value="2">02</option>
+						<option value="3">03</option>
+						<option value="4">04</option>
+						<option value="5">05</option>
+						<option value="6">06</option>
+						<option value="7">07</option>
+						<option value="8">08</option>
+						<option value="9">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+					</select>
+					~
+					<select name="vol_hope_end_time" id="vol_hope_end_time">
+						<option value="99" selected>선택</option>
+						<option value="0">00</option>
+						<option value="1">01</option>
+						<option value="2">02</option>
+						<option value="3">03</option>
+						<option value="4">04</option>
+						<option value="5">05</option>
+						<option value="6">06</option>
+						<option value="7">07</option>
+						<option value="8">08</option>
+						<option value="9">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">개인전문분야</td>
+				<td width="500" height="8" align="left">
+					<input type="text" name="vol_spec_dtl" id="vol_spec_dtl" size="20" maxlength="50" />
+				</td>
+			</tr>
+			
+			<tr>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">단체가입여부</td>
+				<td width="500" height="8" align="left">
+					<input type="radio" name="vol_group_yn" id="vol_group_yn" value="Y" /> <label for="join_check">가입</label>
+					<input type="radio" name="vol_group_yn" id="vol_group_yn" value="N" /> <label for="not_join_check">미가입</label>
+				</td>
+			</tr>
 		
 			<tr>
 				<td height="8"colspan="2" align="center">

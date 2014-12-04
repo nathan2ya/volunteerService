@@ -85,7 +85,6 @@ public class CreateVolunteer {
 		//DTO set 
 		dto.setVol_center_seq(vol_center_seq);
 		dto.setVol_code(vol_code);
-		dto.setVol_zipcode(request.getParameter("post1") + "-" + request.getParameter("post2")); //우편번호(앞자리 - 뒷자리)
 		dto.setVol_type_yn("0");
 		dto.setVol_company_yn("0");
 		dto.setVol_admin_yn("0");
@@ -116,6 +115,10 @@ public class CreateVolunteer {
 	}
 	
 	//회원가입.자원봉사자 detail - DB update
-	
+	@RequestMapping("/voCreateMemberDetail.do")
+	public String voCreateMemberDetail(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
+		
+		return "";
+	}
 	
 }//end of class
