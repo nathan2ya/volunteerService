@@ -9,7 +9,14 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
 	<script type="text/javascript">
 		
-		//다음 주소 API
+		//선택사항 입력, 저장 버튼 구분
+		function goCreate(type){
+			var url = "";
+			var confrimType = document.getElementById("confrimType").value;
+			step4_voCreateMemberForm.submit();
+		}
+		
+		//DAUM 주소 API
 		function openDaumPostcode() {
 	    	new daum.Postcode({
 	        	oncomplete: function(data) {
@@ -149,9 +156,11 @@
 			<tr>
 				<td height="8"colspan="2" align="center">
 					<!-- 
-					<input type="submit" name="submit" value="선택사항입력"/>
-					 -->
 					<input type="submit" name="submit" value="저장"/>
+					 -->
+					<input type="hidden" name="confirmType" id="confrimType" value=""/>
+					<input type="button" name="more" id="more" value="선택사항 입력" onclick="goCreate('more')"/>
+					<input type="button" name="save" id="save" value="저장" onclick="goCreate('save')"/>
 				</td>
 			</tr>
 			

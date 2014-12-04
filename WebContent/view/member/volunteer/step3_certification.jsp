@@ -10,7 +10,7 @@
 <script type="text/javascript">
 		
 	function cofirm() {
-		var url = "/volunteerService/step4_voCreateMemberForm.do";
+		var url = "/volunteerService/step4_voCreateMemberBasicForm.do";
 				
 		location.href = url;
 	}

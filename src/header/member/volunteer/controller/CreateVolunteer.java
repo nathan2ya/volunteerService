@@ -62,16 +62,16 @@ public class CreateVolunteer {
 	}
 	
 	
-	//회원가입.자원봉사자 step4 - 폼
-	@RequestMapping("/step4_voCreateMemberForm.do")
-	public String step4_createMember() throws Exception{
-		return "/view/member/volunteer/step4_createMember.jsp";
+	//회원가입.자원봉사자 step4 - Basic 폼
+	@RequestMapping("/step4_voCreateMemberBasicForm.do")
+	public String step4_voCreateMemberForm() throws Exception{
+		return "/view/member/volunteer/step4_createMemberBasic.jsp";
 	}
 	
 	
-	//회원가입.자원봉사자 last - DB insert
+	//회원가입.자원봉사자 Basic - DB insert
 	@RequestMapping("/voCreateMemberBasic.do")
-	public String memberCreate(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
+	public String voCreateMemberBasic(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
 		
 		//인코딩정의
 		request.setCharacterEncoding("euc-kr");
@@ -103,8 +103,24 @@ public class CreateVolunteer {
 		
 		//DB insert
 		sqlMapper.insert("Volunteer.insertVolunteerBasic", dto);
-		return "redirect:/main.do";
+		
+		//저장 . 선택사항입력 선택여부에 따라 다음 이동 url이 달라진다.
+		String url = "";
+		String confirmType = request.getParameter("confirmType");
+		if(confirmType.equals("save")){
+			url = "redirect:/main.do";
+		}else{
+			url = "redirect:/step5_voCreateMemberDetailForm.do";
+		}
+		return url;
 	}
+	
+	//회원가입.자원봉사자 step5 - Detail 폼
+	@RequestMapping("/step5_voCreateMemberDetailForm.do")
+	public String step5_voCreateMemberDetailForm() throws Exception{
+		return "/view/member/volunteer/step5_voCreateMemberDetail.jsp";
+	}
+	
 	
 	
 }//end of class
