@@ -4,7 +4,8 @@
     
     
 <script language="JavaScript">
-
+	
+	//주소 선택
 	var num_of_city = 18; //select box 1차선택(도/시), 첫번째 포함
 	var option_array = new Array(num_of_city); //select box 2차선택(군/구)
 	
@@ -15,8 +16,7 @@
 	option_array[2] = new Array("-- 선택하세요 --", //부산광역시
 					"중구","서구","동구","영도구","부산진구","동래구","남구","북구","해운대구","사하구","금정구","강서구","연제구","수영구","사상구","기장군");
 	option_array[3] = new Array("-- 선택하세요 --", //대구광역시
-			"1차의3번째",
-			"1차의3번째");
+					"중구","동구","서구","남구","북구","수성구","달서구","달성군");
 	option_array[4] = new Array("-- 선택하세요 --", //인천광역시
 			"1차의3번째",
 			"1차의3번째");
@@ -61,7 +61,7 @@
 			"1차의3번째");
 	
 	
-	
+	//주소선택 select box 컨트롤
 	function switch_select() {
 	  for (loop = window.document.form_1.select_2.options.length-1; loop > 0; loop--) {
 	    window.document.form_1.select_2.options[loop] = null;

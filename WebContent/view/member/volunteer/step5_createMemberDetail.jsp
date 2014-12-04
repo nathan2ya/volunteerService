@@ -14,6 +14,74 @@
 			step5_createMemberDetail.submit();
 		}
 		
+		//주소 선택
+		var num_of_city = 18; //select box 1차선택(도/시), 첫번째 포함
+		var option_array = new Array(num_of_city); //select box 2차선택(군/구)
+		
+		option_array[0] = new Array("------------"); //첫번째
+		option_array[1] = new Array("-- 선택하세요 --", //서울특별시
+						"종로구","중구","용산구","성동구","광진구","동대문구","중랑구","성북구","강북구","도봉구","노원구","은평구","서대문구","마포구",
+						"양천구","강서구","구로구","금천구","영등포구","동작구","관악구","서초구","강남구","송파구","강동구");
+		option_array[2] = new Array("-- 선택하세요 --", //부산광역시
+						"중구","서구","동구","영도구","부산진구","동래구","남구","북구","해운대구","사하구","금정구","강서구","연제구","수영구","사상구","기장군");
+		option_array[3] = new Array("-- 선택하세요 --", //대구광역시
+						"중구","동구","서구","남구","북구","수성구","달서구","달성군");
+		option_array[4] = new Array("-- 선택하세요 --", //인천광역시
+				"1차의3번째",
+				"1차의3번째");
+		option_array[5] = new Array("-- 선택하세요 --", //광주광역시
+				"1차의3번째",
+				"1차의3번째");
+		option_array[6] = new Array("-- 선택하세요 --", //대전광역시
+				"1차의3번째",
+				"1차의3번째");
+		option_array[7] = new Array("-- 선택하세요 --", //울산광역시
+				"1차의3번째",
+				"1차의3번째");
+		option_array[8] = new Array("-- 선택하세요 --", //세종특별자치시
+				"1차의3번째",
+				"1차의3번째");
+		option_array[9] = new Array("-- 선택하세요 --", //경기도
+				"1차의3번째",
+				"1차의3번째");
+		option_array[10] = new Array("-- 선택하세요 --", //강원도
+				"1차의3번째",
+				"1차의3번째");
+		option_array[11] = new Array("-- 선택하세요 --", //충청북도
+				"1차의3번째",
+				"1차의3번째");
+		option_array[12] = new Array("-- 선택하세요 --", //충청남도
+				"1차의3번째",
+				"1차의3번째");
+		option_array[13] = new Array("-- 선택하세요 --", //전라북도
+				"1차의3번째",
+				"1차의3번째");
+		option_array[14] = new Array("-- 선택하세요 --", //전라남도
+				"1차의3번째",
+				"1차의3번째");
+		option_array[15] = new Array("-- 선택하세요 --", //경상북도
+				"1차의3번째",
+				"1차의3번째");
+		option_array[16] = new Array("-- 선택하세요 --", //경상남도
+				"1차의3번째",
+				"1차의3번째");
+		option_array[17] = new Array("-- 선택하세요 --", //제주특별자치도
+				"1차의3번째",
+				"1차의3번째");
+		
+		
+		//주소선택 select box 컨트롤
+		function switch_select() {
+		  for (loop = window.document.step5_createMemberDetail.select_2.options.length-1; loop > 0; loop--) {
+		    window.document.step5_createMemberDetail.select_2.options[loop] = null;
+		  }
+		  
+		  for (loop = 0; loop < option_array[window.document.step5_createMemberDetail.select_1.selectedIndex].length; loop++)   {
+		    window.document.step5_createMemberDetail.select_2.options[loop] = new Option(option_array[window.document.step5_createMemberDetail.select_1.selectedIndex][loop]);
+		  }
+		  window.document.step5_createMemberDetail.select_2.selectedIndex = 0;
+		}
+		
 	</script>
 </head>
 
@@ -45,8 +113,8 @@ vol_group_yn	단체가입여부
 		<table border="0" align="left" width="700" >
 		
 			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">휴대폰번호</td>
-				<td width="550" height="8" align="left">
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">휴대폰번호</td>
+				<td width="500" height="8" align="left">
 					<select name = "vol_phone_1">
 						<option value="010">010</option>
 						<option value="011">011</option>
@@ -59,8 +127,8 @@ vol_group_yn	단체가입여부
 			</tr>
 			
 			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">유선전화번호</td>
-				<td width="550" height="8" align="left">
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">유선전화번호</td>
+				<td width="500" height="8" align="left">
 					<select name = "vol_phone_2">
 						<option value="02">02</option>
 						<option value="031">031</option>
@@ -96,102 +164,42 @@ vol_group_yn	단체가입여부
 				</td>
 			</tr>
 			
-			
-			
-			
-			
-			
-			
 			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">생년월일</td>
-				<td width="550" height="8" align="left">
-					1990 년 10 월 10 일 
-					<font color="gray" size="2"> ※ 본인 확인을 위한 자료로 이용됩니다.</font>
-					<input type="hidden" name="vol_birthday" id="vol_birthday" value="19001010"/>
+				<td width="200" height="8" align="right" bgcolor="#D5D5D5">봉사희망지역(소속센터)</td>
+				<td width="500" height="8" align="left">
+					<select name="select_1" onChange="switch_select();">
+					    <option>--도/시 선택--</option>
+					    <option>서울특별시</option>
+						<option>부산광역시</option>
+						<option>대구광역시</option>
+						<option>인천광역시</option>
+						<option>광주광역시</option>
+						<option>대전광역시</option>
+						<option>울산광역시</option>
+						<option>세종특별자치시</option>
+						<option>경기도</option>
+						<option>강원도</option>
+						<option>충청북도</option>
+						<option>충청남도</option>
+						<option>전라북도</option>
+						<option>전라남도</option>
+						<option>경상북도</option>
+						<option>경상남도</option>
+						<option>제주특별자치도</option>
+				    </select>
+					
+				    <select name="select_2" onChange="switch_text();">
+					    <option>--군/구 선택--</option>
+				    </select>
 				</td>
 			</tr>
 			
-			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">아이디</td>
-				<td width="550" height="8" align="left">
-					<input type="text" name="volunteer_id" id="volunteer_id" size="20" maxlength="12" />
-					<br/>
-				</td>
-			</tr>
 			
-			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호</td>
-				<td width="550" height="8" align="left">
-					<input type="password" name="vol_pw" id="vol_pw" size="30" maxlength="20" />
-					<br/>
-				</td>
-			</tr>
 			
-			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호 확인</td>
-				<td width="550" height="8" align="left">
-					<input type="password" name="vol_pw_check" id="vol_pw_check" size="30" maxlength="20" />
-					<br/>
-				</td>
-			</tr>
 			
-			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호 힌트</td>
-				<td width="550" height="8" align="left">
-					<select name = vol_pw_ask>
-						<option value = "1">질문1</option>
-						<option value = "2">질문2</option>
-						<option value = "3">질문3</option>
-						<option value = "4">질문4</option>
-						<option value = "5">질문5</option>
-						<option value = "6">질문6</option>
-					</select>
-				</td>
-			</tr>
 			
-			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">힌트 답변</td>
-				<td width="550" height="8" align="left">
-					<input type="text" name="vol_pw_ans" id="vol_pw_ans" size="30" maxlength="20" />
-				</td>
-			</tr>
 			
-			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">소속 센터</td>
-				<td width="550" height="8" align="left">
-					1차선택, 2차선택, 3차선택 만들예정 (현재 히든값으로 들어간다.)
-					<input type="hidden" name="vol_center_seq" id="vol_center_seq" value="777" />
-				</td>
-			</tr>
 			
-			<tr>	
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">우편번호</td>
-				<td width="550" height="8" align="left">
-					<input type="text" id="post1" name="post1" size="8" class="d_form mini"> - <input type="text" id="post2" name="post2" size="8" class="d_form mini">
-				    <input type="button" onclick="openDaumPostcode()" value="우편번호 찾기" class="d_btn">
-				</td>
-			</tr>
-			
-			<tr>	
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">주소</td>
-				<td width="550" height="8" align="left">
-					<input type="text" id="vol_addr_bsc" name="vol_addr_bsc" class="d_form" size="45" placeholder="주소">
-				</td>
-			</tr>
-			
-			<tr>	
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">상세주소</td>
-				<td width="550" height="8" align="left">
-					<input type="text" id="vol_addr_dtl" name="vol_addr_dtl" class="d_form" size="45" placeholder="상세주소">
-				</td>
-			</tr>
-			
-			<tr>	
-				<td width="150" height="16" align="right" bgcolor="#D5D5D5">이메일</td>
-				<td width="550" height="16" align="left">
-					<input type="text" name="vol_email" id="vol_email" size="45" maxlength="30"/>
-				</td>
-			</tr>
 		
 			<tr>
 				<td height="8"colspan="2" align="center">
