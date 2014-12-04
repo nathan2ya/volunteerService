@@ -94,6 +94,7 @@ public class CreateVolunteer {
 		
 		//DB insert
 		sqlMapper.insert("Volunteer.insertVolunteerBasic", dto);
+		
 		/*
 		 * 2가지 경우의 return URL
 		 * 1. [저장] 버튼 선택 : 회원가입완료 페이지로 이동

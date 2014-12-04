@@ -10,7 +10,7 @@
 	<script type="text/javascript">
 		
 		//선택사항 입력, 저장 버튼 구분
-		function goCreate(type){
+		function goCreateBasic(type){
 			document.getElementById("confrimType").value = type;
 			step4_voCreateMemberForm.submit();
 		}
@@ -28,27 +28,25 @@
 	            }
 	        }).open();
 	    }
-		//.다음 주소 API 종료
 		
 	</script>
 </head>
 
 
-<h2 align="left">자원봉사자 회원가입(임시)</h2>
+<h2 align="left">자원봉사자 회원가입(기본정보)</h2>
 
 
 <body style="padding-left: 50px">
 	
 	<form name="step4_voCreateMemberForm" action="/volunteerService/voCreateMemberBasic.do" method="post">
 		
-		<!-- 회원가입 입력폼 테이블 -->
+		<!-- 자원봉사자 회원가입(기본정보) -->
 		<table border="0" align="left" width="700" >
 		
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">이름</td>
 				<td width="550" height="8" align="left">
 					<input type="text" name="vol_name" id="vol_name" size="20" maxlength="25" />
-					<br/>
 				</td>
 			</tr>
 			
@@ -73,7 +71,6 @@
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">아이디</td>
 				<td width="550" height="8" align="left">
 					<input type="text" name="volunteer_id" id="volunteer_id" size="20" maxlength="12" />
-					<br/>
 				</td>
 			</tr>
 			
@@ -81,7 +78,6 @@
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호</td>
 				<td width="550" height="8" align="left">
 					<input type="password" name="vol_pw" id="vol_pw" size="30" maxlength="20" />
-					<br/>
 				</td>
 			</tr>
 			
@@ -89,7 +85,6 @@
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호 확인</td>
 				<td width="550" height="8" align="left">
 					<input type="password" name="vol_pw_check" id="vol_pw_check" size="30" maxlength="20" />
-					<br/>
 				</td>
 			</tr>
 			
@@ -104,7 +99,6 @@
 						<option value = "5">질문5</option>
 						<option value = "6">질문6</option>
 					</select>
-					<br/>
 				</td>
 			</tr>
 			
@@ -154,12 +148,9 @@
 		
 			<tr>
 				<td height="8"colspan="2" align="center">
-					<!-- 
-					<input type="submit" name="submit" value="저장"/>
-					 -->
 					<input type="hidden" name="confirmType" id="confrimType" value=""/>
-					<input type="button" name="more" id="more" value="선택사항 입력" onclick="goCreate('more')"/>
-					<input type="button" name="save" id="save" value="저장" onclick="goCreate('save')"/>
+					<input type="button" name="more" id="more" value="선택사항 입력" onclick="goCreateBasic('more')"/>
+					<input type="button" name="save" id="save" value="저장" onclick="goCreateBasic('save')"/>
 				</td>
 			</tr>
 			
