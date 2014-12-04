@@ -11,6 +11,7 @@
 		
 		//submit
 		function goCreateDetail(){
+						
 			//체크된 희망요일
 			var days = "";
 			if(document.getElementById("mon").checked){ days += '1'; }
@@ -83,15 +84,20 @@
 		
 		//주소선택 select box 컨트롤
 		function switch_select() {
-		  for (loop = window.document.step5_createMemberDetail.select_2.options.length-1; loop > 0; loop--) {
-		    window.document.step5_createMemberDetail.select_2.options[loop] = null;
-		  }
-		  
-		  for (loop = 0; loop < option_array[window.document.step5_createMemberDetail.select_1.selectedIndex].length; loop++)   {
-		    window.document.step5_createMemberDetail.select_2.options[loop] = new Option(option_array[window.document.step5_createMemberDetail.select_1.selectedIndex][loop]);
-		  }
-		  window.document.step5_createMemberDetail.select_2.selectedIndex = 0;
+			for (loop = window.document.step5_createMemberDetail.select_2.options.length-1; loop > 0; loop--) {
+				window.document.step5_createMemberDetail.select_2.options[loop] = null;
+			}
+			for (loop = 0; loop < option_array[window.document.step5_createMemberDetail.select_1.selectedIndex].length; loop++)   {
+				window.document.step5_createMemberDetail.select_2.options[loop] = new Option(option_array[window.document.step5_createMemberDetail.select_1.selectedIndex][loop]);
+			}
+			window.document.step5_createMemberDetail.select_2.selectedIndex = 0;
 		}
+		
+		function set_orig() {
+			window.document.form_1.select_1.selectedIndex = 0;
+			window.document.form_1.select_2.selectedIndex = 0;
+		}
+		window.onload=set_orig
 		
 	</script>
 </head>
@@ -168,24 +174,24 @@
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">봉사희망지역(소속센터)</td>
 				<td width="500" height="8" align="left">
 					<select name="select_1" onChange="switch_select();">
-					    <option>--도/시 선택--</option>
-					    <option>서울특별시</option>
-						<option>부산광역시</option>
-						<option>대구광역시</option>
-						<option>인천광역시</option>
-						<option>광주광역시</option>
-						<option>대전광역시</option>
-						<option>울산광역시</option>
-						<option>세종특별자치시</option>
-						<option>경기도</option>
-						<option>강원도</option>
-						<option>충청북도</option>
-						<option>충청남도</option>
-						<option>전라북도</option>
-						<option>전라남도</option>
-						<option>경상북도</option>
-						<option>경상남도</option>
-						<option>제주특별자치도</option>
+					    <option value="0">--도/시 선택--</option>
+					    <option value="1">서울특별시</option>
+						<option value="2">부산광역시</option>
+						<option value="3">대구광역시</option>
+						<option value="4">인천광역시</option>
+						<option value="5">광주광역시</option>
+						<option value="6">대전광역시</option>
+						<option value="7">울산광역시</option>
+						<option value="8">세종특별자치시</option>
+						<option value="9">경기도</option>
+						<option value="10">강원도</option>
+						<option value="11">충청북도</option>
+						<option value="12">충청남도</option>
+						<option value="13">전라북도</option>
+						<option value="14">전라남도</option>
+						<option value="15">경상북도</option>
+						<option value="16">경상남도</option>
+						<option value="17">제주특별자치도</option>
 				    </select>
 					
 				    <select name="select_2" onChange="switch_text();">
