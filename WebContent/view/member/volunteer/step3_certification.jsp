@@ -21,7 +21,7 @@
 
 <body>
 	
-	아이핀 연동구간
+	아이핀 연동구간<br/>
 	<input type="button" name="confrim"  value="인증완료" onclick="cofirm()"/>
 	
 </body>
