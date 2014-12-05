@@ -117,8 +117,10 @@ public class CreateVolunteer {
 	//회원가입.자원봉사자 detail - DB update
 	@RequestMapping("/voCreateMemberDetail.do")
 	public String voCreateMemberDetail(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
+		System.out.println("진입");
 		
-		return "";
+		System.out.println(dto.getVol_hope_center_code());
+		return "redirect:/step6_complete.do";
 	}
 	
 }//end of class

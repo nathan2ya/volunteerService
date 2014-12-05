@@ -14,12 +14,8 @@
 		
 		//submit
 		function goCreateDetail(){
-			alert("select_2 테스트시작");
 			
-			var index = $("#select_2 option").index($("#select_2 option:selected"));
-			alert(index);
-			
-			//체크된 희망요일
+			//체크된 희망요일 (요일,요일)
 			var days = "";
 			if(document.getElementById("mon").checked){ days += "1"; }
 			if(document.getElementById("tue").checked){ days += "2"; }
@@ -30,45 +26,55 @@
 			if(document.getElementById("sun").checked){ days += "7"; }
 			document.getElementById("vol_hope_date").value = days.split("", days.length);
 			
-			//step5_createMemberDetail.submit();
+			//선택된 봉사희망지역(소속센터) (1차선택,2차선택)
+			var hope_cen_1 = $("#hope_cen_1 option").index($("#hope_cen_1 option:selected"));
+			var hope_cen_2 = $("#hope_cen_2 option").index($("#hope_cen_2 option:selected"));
+			document.getElementById("vol_hope_center_code").value = hope_cen_1+","+hope_cen_2;
+			
+			step5_voCreateMemberForm.submit();
 		}
 		
 		
-		// 첫번째 셀렉트 구간 배열 선언 
+		// 도/시 
 		var Arr1 = new Array(
 				"도/시 선택","서울특별시","부산광역시","대구광역시","인천광역시","광주광역시","대전광역시","울산광역시","세종특별자치시",
 				"경기도","강원도","충청북도","충청남도","전라북도","전라남도","경상북도","경상남도","제주특별자치도");
 		
-		// 두번째 셀렉트 구간 배열 
+		// 구/군
 		var Arr2 = new Array( 
 			// Arr1 배열값, 선택된 값에 보여줄 값들 
 			new Array("도/시 선택","구/군 선택")
 			,new Array("서울특별시","전체","종로구","중구","용산구","성동구","광진구","동대문구","중랑구","성북구","강북구","도봉구","노원구","은평구",
-					  "서대문구","마포구","양천구","강서구","구로구","금천구","영등포구","동작구","관악구","서초구","강남구","송파구","강동구")
+					   "서대문구","마포구","양천구","강서구","구로구","금천구","영등포구","동작구","관악구","서초구","강남구","송파구","강동구")
 			,new Array("부산광역시","전체","중구","서구","동구","영도구","부산진구","동래구","남구","북구","해운대구","사하구","금정구","강서구","연제구","수영구","사상구","기장군")
 			,new Array("대구광역시","전체","중구","동구","서구","남구","북구","수성구","달서구","달성군")
-			,new Array("인천광역시","전체","41","42","43","44","45","46","47") 
-			,new Array("광주광역시","51")
-			,new Array("대전광역시","61") 
-			,new Array("울산광역시","71") 
-			,new Array("세종특별자치시","81") 
-			,new Array("경기도","91") 
-			,new Array("강원도","101") 
-			,new Array("충청북도","111") 
-			,new Array("충청남도","121") 
-			,new Array("전라북도","131") 
-			,new Array("전라남도","141") 
-			,new Array("경상북도","151") 
-			,new Array("경상남도","161")
-			,new Array("제주특별자치도","171")
+			,new Array("인천광역시","전체","중구","동구","남구","연수구","남동구","부평구","계양구","서구","강화군","옹진군") 
+			,new Array("광주광역시","전체","동구","서구","남구","북구","광산구")
+			,new Array("대전광역시","전체","동구","중구","서구","유성구","대덕구") 
+			,new Array("울산광역시","전체","중구","남구","동구","북구","울주군") 
+			,new Array("세종특별자치시","세종시") 
+			,new Array("경기도","전체","수원시","성남시","의정부시","안양시","부천시","광명시","평택시","동두천시","안산시","고양시","과천시","구리시",
+					   "남양주시","오산시","시흥시","군포시","의왕시","하남시","용인시","파주시","이천시","안성시","김포시","연천군","가평군","양평군","화성시","광주시","양주시","포천시","여주시") 
+			,new Array("강원도","전체","춘천시","원주시","강릉시","동해시","태백시","속초시","삼척시","홍천군","횡성군","영월군","평창군","정선군","철원군","화천군","양구군","인제군","고성군","양양군") 
+			,new Array("충청북도","전체","청주시","충주시","제천시","보은군","옥천군","영동군","진천군","괴산군","음성군","단양군","증평군") 
+			,new Array("충청남도","전체","천안시","공주시","보령시","아산시","서산시","논산시","금산군","부여군","서천군","청양군","홍성군","예산군","태안군","당진시","계룡시") 
+			,new Array("전라북도","전체","전주시","군산시","익산시","정읍시","남원시","김제시","완주군","진안군","무주군","장수군","임실군","순창군","고창군","부안군") 
+			,new Array("전라남도","전체","목포시","여수시","순천시","나주시","광양시","담양군","곡성군","구례군","고흥군","보성군","화순군","장흥군","강진군","해남군","영암군","무안군","함평군","영광군","장성군","완도군","진도군","신안군") 
+			,new Array("경상북도","전체","포항시","경주시","김천시","안동시","구미시","영주시","영천시","상주시","문경시","경산시","군위군","의성군","청송군","영양군","영덕군","청도군","고령군","성추군","칠곡군","예천군","봉화군","울진군","울릉군") 
+			,new Array("경상남도","전체","진주시","통영시","사천시","김해시","밀양시","거제시","양산시","의령군","함안군","창녕군","고성군","남해군","하동군","산청군","함양군","거창군","합천군","창원시")
+			,new Array("제주특별자치도","전체","제주시","서귀포시")
 		); 
 		
-	
-		// span S1 에 넣을 셀렉트 태그구문 
-		// Selected() << 선택시 호출할 function 
+		
+		
+		
+		
+		
+		
+
+		//selecthtml1
 		var selecthtml1 = ""; 
 		selecthtml1 += '<select id="select1" name="select1" onChange="Selected();">'; 
-		
 		for(var i = 0;i < Arr1.length ; i++){ 
 		   selecthtml1 += '<option value="'+Arr1[i]+'">'+Arr1[i]+'</option>'; 
 		} 
@@ -96,17 +102,17 @@
 		   selecthtml2 += '</select>'; 
 		
 		   // selecthtml2을 span S2 에 넣어준다 
-		   document.getElementById("select_2").innerHTML = selecthtml2; 
-		
+		   document.getElementById("hope_cen_2").innerHTML = selecthtml2; 
 		} 
 		
+		
+		
+		
+		
 		window.onload = function(){ 
-		
-		   // selecthtml1을 span S1 에 넣어준다 
-		   document.getElementById("select_1").innerHTML = selecthtml1; 
-		
-		   // select1 이 선택되어 있을경우 같이 보여주기 위해 
-		   Selected(); 
+			document.getElementById("hope_cen_1").innerHTML = selecthtml1; // selecthtml1을 vol_hope_plc_2 에 넣어준다 
+			
+			Selected(); //select1 이 선택되어 있을경우 같이 보여주기 위해
 		} 
 		
 		//여기까지
@@ -122,10 +128,11 @@
 
 <body style="padding-left: 50px">
 	
-	<form name="step5_createMemberDetail" action="/volunteerService/voCreateMemberDetail.do" method="post">
+	
+	<form name="step5_voCreateMemberForm" action="/volunteerService/voCreateMemberDetail.do" method="post">
 		
 		<!-- 자원봉사자 회원가입(선택사항) -->
-		<table border="0" align="left" width="700" >
+		<table align="left" width="700" >
 			
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">휴대폰번호</td>
@@ -186,22 +193,27 @@
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">봉사희망지역(소속센터)</td>
 				<td width="500" height="8" align="left">
-					<span id="select_1"></span>
-					<span id="select_2"></span>
+					<span id="hope_cen_1"></span>
+					<span id="hope_cen_2"></span>
+					<input type="hidden" name="vol_hope_center_code" id="vol_hope_center_code" value=""/>
 				</td>
 			</tr>
 			
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">봉사희망지역(선택1)</td>
 				<td width="500" height="8" align="left">
-					//TODO vol_hope_plc_1 // 봉사희망지역(소속센터) 필드가 완료되면 개발예정
+					<span id="hope_plc1_1"></span>
+					<span id="hope_plc1_2"></span>
+					<input type="hidden" name="vol_hope_plc_1" id="vol_hope_plc_1" value=""/>
 				</td>
 			</tr>
 			
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">봉사희망지역(선택2)</td>
 				<td width="500" height="8" align="left">
-					//TODO vol_hope_plc_2 // 봉사희망지역(소속센터) 필드가 완료되면 개발예정
+					<span id="hope_plc2_1"></span>
+					<span id="hope_plc2_2"></span>
+					<input type="hidden" name="vol_hope_plc_2" id="vol_hope_plc_2" value=""/>
 				</td>
 			</tr>
 			
