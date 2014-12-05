@@ -37,14 +37,14 @@
 </head>
 
 
-<h2 align="left">자원봉사자 회원가입(기본정보)</h2>
+<h2 align="left">일반 회원가입(기본정보)</h2>
 
 
 <body style="padding-left: 50px">
 	
 	<form name="step4_voCreateMemberForm" action="/volunteerService/voCreateMemberBasic.do" method="post">
 		
-		<!-- 자원봉사자 회원가입(기본정보) -->
+		<!-- 일반 회원가입(기본정보) -->
 		<table border="0" align="left" width="700" >
 		
 			<tr>

@@ -36,7 +36,6 @@ public class CreateDemander {
 	//회원가입.수요처 step2 - 약관동의
 	@RequestMapping("/step2_deStipulation.do")
 	public String step2_deStipulation() throws Exception{
-		System.out.println("진입");
 		return "/view/member/demander/step2_stipulation.jsp";
 	}
 	
