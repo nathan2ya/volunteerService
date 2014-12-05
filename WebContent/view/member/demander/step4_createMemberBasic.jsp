@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	기본정보입력
 </body>
 </html>

@@ -7,8 +7,6 @@ import java.io.Reader;
 import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Controller;
@@ -49,14 +47,14 @@ public class CreateVolunteer {
 	
 	//회원가입.자원봉사자 step2 - 약관동의
 	@RequestMapping("/step2_voStipulation.do")
-	public String step2_stipulation() throws Exception{
+	public String step2_voStipulation() throws Exception{
 		return "/view/member/volunteer/step2_stipulation.jsp";
 	}
 	
 	
 	//회원가입.자원봉사자 step3 - 본인인증
 	@RequestMapping("/step3_voCertification.do")
-	public String step3_certification() throws Exception{
+	public String step3_voCertification() throws Exception{
 		return "/view/member/volunteer/step3_certification.jsp";
 	}
 	
