@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap namespace="Demander">
+
+	<typeAlias alias="demanderDTO" type="header.member.demander.dto.DemanderDTO" />
+	
+	<!-- 리절트 맵 정의 -->
+	<resultMap id="demanderRes" class="demanderDTO">
+		<result property="demander_id" column="demander_id" />
+		<result property="dem_gubun" column="dem_gubun" />
+		<result property="dem_cen_name" column="dem_cen_name" />
+		<result property="dem_cha_name" column="dem_cha_name" />
+		<result property="dem_cha_sex" column="dem_cha_sex" /> 
+		<result property="dem_dep" column="dem_dep" />
+		<result property="dem_level" column="dem_level" />
+		<result property="dem_birthday" column="dem_birthday" />
+		<result property="dem_pw" column="dem_pw" />
+		<result property="dem_pw_ask" column="dem_pw_ask" />
+		<result property="dem_pw_ans" column="dem_pw_ans" />
+		<result property="dem_ins_name" column="dem_ins_name" />
+		<result property="dem_rep_name" column="dem_rep_name" />
+		<result property="dem_resnum" column="dem_resnum" />
+		<result property="dem_addr_city" column="dem_addr_city" />
+		<result property="dem_addr_gun" column="dem_addr_gun" />
+		<result property="dem_addr_dong" column="dem_addr_dong" />
+		<result property="dem_addr_dtl" column="dem_addr_dtl" />
+		<result property="dem_email" column="dem_email" />
+		
+		<result property="dem_phone" column="dem_phone" />
+		<result property="dem_fax" column="dem_fax" />
+		<result property="dem_cha_phone" column="dem_cha_phone" />
+		<result property="dem_fac_type" column="dem_fac_type" />
+		<result property="dem_max_people" column="dem_max_people" />
+		<result property="dem_vol_type" column="dem_vol_type" />
+		<result property="dem_img_path" column="dem_img_path" />
+		<result property="dem_content" column="dem_content" />
+		
+		<result property="dem_reg_date" column="dem_reg_date" />
+		<result property="dem_mod_date" column="dem_mod_date" />
+	</resultMap>
+
+
+	
+	<!-- insert -->
+	<insert id="insertDemanderBasic" parameterClass="demanderDTO">
+		insert into TB_DEMANDER
+			( demander_id, dem_gubun, dem_cen_name, dem_cha_name, dem_cha_sex, dem_dep, dem_level, dem_birthday, dem_pw, 
+			dem_pw_ask, dem_pw_ans, dem_ins_name, dem_rep_name, dem_resnum, dem_addr_city, dem_addr_gun, dem_addr_dong, dem_addr_dtl, dem_email, dem_reg_date, dem_mod_date )
+		values
+			( #demander_id#, #dem_gubun#, #dem_cen_name#, #dem_cha_name#, #dem_cha_sex#, #dem_dep#, #dem_level#, #dem_birthday#, #dem_pw#, 
+			#dem_pw_ask#, #dem_pw_ans#, #dem_ins_name#, #dem_rep_name#, #dem_resnum#, #dem_addr_city#, #dem_addr_gun#, #dem_addr_dong#, #dem_addr_dtl#, #dem_email#, #dem_reg_date#, #dem_mod_date# )
+	</insert>
+	
+	
+	
+	<!-- select -->
+
+
+
+	<!-- update -->
+
+
+	
+	<!-- delete -->
+	
+	
+	
+</sqlMap>
