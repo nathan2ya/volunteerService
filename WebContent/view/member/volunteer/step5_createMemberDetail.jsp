@@ -220,21 +220,21 @@
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">Èñ¸ÁºÐ¾ß1</td>
 				<td width="500" height="8" align="left">
-					//TODO vol_hope_sev_1	
+					<!-- TODO vol_hope_sev_1	 -->
 				</td>
 			</tr>
 			
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">Èñ¸ÁºÐ¾ß2</td>
 				<td width="500" height="8" align="left">
-					//TODO vol_hope_sev_2	
+					<!-- TODO vol_hope_sev_2	 -->
 				</td>
 			</tr>
 			
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">Èñ¸ÁºÐ¾ß3</td>
 				<td width="500" height="8" align="left">
-					//TODO vol_hope_sev_3
+					<!-- TODO vol_hope_sev_3 -->
 				</td>
 			</tr>
 			
