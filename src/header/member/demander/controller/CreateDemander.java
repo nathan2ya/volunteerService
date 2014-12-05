@@ -1,10 +1,17 @@
 package header.member.demander.controller;
 
+import header.member.demander.dto.DemanderDTO;
+import header.member.volunteer.dto.VolunteerDTO;
+
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Calendar;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ibatis.common.resources.Resources;
@@ -18,6 +25,8 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 @Controller
 public class CreateDemander {
+	
+	private String url; // return URL
 	
 	//DB커넥트 인스턴스 변수
 	SqlMapClientTemplate ibatis = null;
@@ -51,5 +60,60 @@ public class CreateDemander {
 		return "/view/member/demander/step4_createMemberBasic.jsp";
 	}
 	
+	//회원가입.자원봉사자 Basic - DB insert
+	@RequestMapping("/deCreateMemberBasic.do")
+	public String deCreateMemberBasic(HttpServletRequest request, @ModelAttribute("DemanderDTO") DemanderDTO dto) throws Exception{
+		
+		request.setCharacterEncoding("euc-kr");
+		Calendar today = Calendar.getInstance();
+		
+		//창립일
+		String dem_birthday_year = request.getParameter("dem_birthday_year");
+		String dem_birthday_month = request.getParameter("dem_birthday_month");
+		String dem_birthday_day = request.getParameter("dem_birthday_day");
+		String dem_birthday = dem_birthday_year + "-"  + dem_birthday_month  + "-"  + dem_birthday_day;
+		
+		//주소 분류
+		String dem_addr_bsc = request.getParameter("dem_addr_bsc");
+		
+		//도/시 . 구/군 . 동
+		int space = dem_addr_bsc.indexOf(" ");
+		String dem_addr_city = dem_addr_bsc.substring(0, space);//도,시
+		String tempAddr = dem_addr_bsc.substring(space+1);
+		space = tempAddr.indexOf(" ");
+		String dem_addr_gun = tempAddr.substring(0, space);//구,군
+		String dem_addr_dong = tempAddr.substring(space+1);//동
+		
+		//DTO set
+		dto.setDem_gubun("2");// 1:센터, 2:수요처
+		dto.setDem_birthday(dem_birthday);
+		dto.setDem_addr_city(dem_addr_city);
+		dto.setDem_addr_gun(dem_addr_gun);
+		dto.setDem_addr_dong(dem_addr_dong);
+		dto.setDem_reg_date(today.getTime());
+		dto.setDem_mod_date(today.getTime());
+		
+		//DB insert
+		sqlMapper.insert("Demander.insertDemanderBasic", dto);
+		
+		/*
+		 * 2가지 경우의 return URL
+		 * 1. [저장] 버튼 선택 : 회원가입완료 페이지로 이동
+		 * 2. [선택사항 입력] 버튼 선택 : 선택사항입력 페이지로 이동
+		*/
+		if(request.getParameter("confirmType").equals("save")){
+			url = "redirect:/step6_complete.do";
+		}else{ // equals("more");
+			url = "redirect:/step5_deCreateMemberDetailForm.do?demander_id="+dto.getDemander_id();
+		}
+		return url;
+	}
+	
+	//회원가입.자원봉사자 step5 - Detail 폼
+	@RequestMapping("/step5_deCreateMemberDetailForm.do")
+	public String step5_deCreateMemberDetailForm(HttpServletRequest request) throws Exception{
+		request.setAttribute("demander_id", request.getParameter("demander_id"));
+		return "/view/member/demander/step5_createMemberDetail.jsp";
+	}
 
 }//end of class

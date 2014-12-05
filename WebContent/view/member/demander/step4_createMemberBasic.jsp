@@ -11,12 +11,14 @@
 		
 		//submit
 		function goCreateBasic(type){
+			alert("진입");
+			
 			//선택사항입력 or 저장
 			document.getElementById("confrimType").value = type;
 			
 			//우편번호 형식으로 변경 = 앞자리-뒷자리
-			document.getElementById("vol_zipcode").value = document.getElementById("post1").value + "-" +  document.getElementById("post2").value;
-			step4_voCreateMemberForm.submit();
+			document.getElementById("dem_zipcode").value = document.getElementById("post1").value + "-" +  document.getElementById("post2").value;
+			step4_deCreateMemberForm.submit();
 		}
 		
 		//DAUM 주소 API
@@ -83,7 +85,6 @@
 					<input type="text" name="dem_birthday_year" id="dem_birthday_year" size="6" maxlength="4"/> 년
 					<input type="text" name="dem_birthday_month" id="dem_birthday_month" size="4" maxlength="2"/> 월
 					<input type="text" name="dem_birthday_day" id="dem_birthday_day" size="4" maxlength="2"/> 일
-					<input type="hidden" name="dem_birthday" id="dem_birthday" value=""/>
 					<font color="gray" size="2"> ※ 본인 확인을 위한 자료로 이용됩니다.</font>
 				</td>
 			</tr>
@@ -155,8 +156,8 @@
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">우편번호</td>
 				<td width="550" height="8" align="left">
 					<input type="text" id="post1" name="post1" size="8" class="d_form mini"> - <input type="text" id="post2" name="post2" size="8" class="d_form mini">
-					<input type="hidden" name="dem_zipcode" id="dem_zipcode" value=""/>
 				    <input type="button" onclick="openDaumPostcode()" value="우편번호 찾기" class="d_btn">
+				    <input type="hidden" name="dem_zipcode" id="dem_zipcode" value="" />
 				</td>
 			</tr>
 			
@@ -178,6 +179,14 @@
 				<td width="150" height="16" align="right" bgcolor="#D5D5D5">담당자이메일</td>
 				<td width="550" height="16" align="left">
 					<input type="text" name="dem_email" id="dem_email" size="45" maxlength="30"/>
+				</td>
+			</tr>
+			
+			<tr>	
+				<td width="150" height="16" align="right" bgcolor="#D5D5D5">소속센터</td>
+				<td width="550" height="16" align="left">
+					도시선택, 군구선택, 센터선택
+					<input type="hidden" name="dem_cen_name" id="dem_cen_name" value="성수동센터"/>
 				</td>
 			</tr>
 			
