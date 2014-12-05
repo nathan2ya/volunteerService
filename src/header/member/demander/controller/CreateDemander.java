@@ -1,7 +1,6 @@
 package header.member.demander.controller;
 
 import header.member.demander.dto.DemanderDTO;
-import header.member.volunteer.dto.VolunteerDTO;
 
 import java.io.IOException;
 import java.io.Reader;
