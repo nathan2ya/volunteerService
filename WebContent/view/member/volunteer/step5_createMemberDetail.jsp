@@ -15,6 +15,18 @@
 		//submit
 		function goCreateDetail(){
 			
+			//휴대폰번호
+			var vol_phone_1_1 = document.getElementById("vol_phone_1_1").value;;
+			var vol_phone_1_2 = document.getElementById("vol_phone_1_2").value;;
+			var vol_phone_1_3 = document.getElementById("vol_phone_1_3").value;;
+			document.getElementById("vol_phone_1").value = vol_phone_1_1+"-"+vol_phone_1_2+"-"+vol_phone_1_3;
+			
+			//유선전화번호
+			var vol_phone_2_1 = document.getElementById("vol_phone_2_1").value;
+			var vol_phone_2_2 = document.getElementById("vol_phone_2_2").value;
+			var vol_phone_2_3 = document.getElementById("vol_phone_2_3").value;
+			document.getElementById("vol_phone_2").value = vol_phone_2_1+"-"+vol_phone_2_2+"-"+vol_phone_2_3;
+			
 			//체크된 희망요일 (요일,요일)
 			var days = "";
 			if(document.getElementById("mon").checked){ days += "1"; }
@@ -147,6 +159,7 @@
 					</select>
 					<input type="text" name="vol_phone_1_2" id="vol_phone_1_2" size="6" maxlength="4" />
 					<input type="text" name="vol_phone_1_3" id="vol_phone_1_3" size="6" maxlength="4" />
+					<input type="hidden" name="vol_phone_1" id="vol_phone_1" value=""/>
 				</td>
 			</tr>
 			
@@ -187,6 +200,7 @@
 					</select>
 					<input type="text" name="vol_phone_2_2" id="vol_phone_2_2" size="6" maxlength="4" />
 					<input type="text" name="vol_phone_2_3" id="vol_phone_2_3" size="6" maxlength="4" />
+					<input type="hidden" name="vol_phone_2" id="vol_phone_2" value=""/>
 				</td>
 			</tr>
 			
@@ -353,6 +367,7 @@
 		
 			<tr>
 				<td height="8"colspan="2" align="center">
+					<input type="hidden" name="volunteer_id" id="volunteer_id" value="${volunteer_id}"/>
 					<input type="button" name="save" id="save" value="저장" onclick="goCreateDetail()"/>
 				</td>
 			</tr>

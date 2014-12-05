@@ -26,8 +26,16 @@
 	
 	<form action="/volunteerService/step3_voCertification.do" method="POST" onsubmit="return checkCheckBox(this)">
 		
-		<textarea cols=30 rows=5> 
-보우테크 자원봉사서비스 입니다. 여기에 약관내용이 들어갈 예정.
+		<textarea cols=80 rows=10> 
+보우테크 자원봉사서비스 입니다. 
+
+1. 약관입니다.
+2. 약관입니다.
+3. 약관입니다.
+4. 약관입니다.
+5. 약관입니다.
+6. 약관입니다.
+
 		</textarea><br/><br/>
 		
 		동의합니다. <input type="checkbox" value="0" name="agree">

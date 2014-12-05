@@ -50,14 +50,15 @@
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">이름</td>
 				<td width="550" height="8" align="left">
-					<input type="text" name="vol_name" id="vol_name" size="20" maxlength="25" />
+					류재욱(아이핀정보)
+					<input type="hidden" name="vol_name" id="vol_name" value="류재욱"/>
 				</td>
 			</tr>
 			
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">성별</td>
 				<td width="550" height="8" align="left">
-					남
+					남(아이핀정보)
 					<input type="hidden" name="vol_sex" id="vol_sex" value="1"/>
 				</td>
 			</tr>
@@ -65,7 +66,7 @@
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">생년월일</td>
 				<td width="550" height="8" align="left">
-					1990 년 10 월 10 일 
+					1990 년 10 월 10 일(아이핀정보)
 					<font color="gray" size="2"> ※ 본인 확인을 위한 자료로 이용됩니다.</font>
 					<input type="hidden" name="vol_birthday" id="vol_birthday" value="19001010"/>
 				</td>

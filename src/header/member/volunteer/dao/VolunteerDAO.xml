@@ -20,6 +20,7 @@
 		<result property="vol_addr_bsc" column="vol_addr_bsc" />
 		<result property="vol_addr_dtl" column="vol_addr_dtl" />
 		<result property="vol_email" column="vol_email" />
+		
 		<result property="vol_phone_1" column="vol_phone_1" />
 		<result property="vol_phone_2" column="vol_phone_2" />
 		<result property="vol_hope_center_code" column="vol_hope_center_code" />
@@ -34,6 +35,7 @@
 		<result property="vol_hope_end_time" column="vol_hope_end_time" />
 		<result property="vol_spec_dtl" column="vol_spec_dtl" />
 		<result property="vol_group_yn" column="vol_group_yn" />
+		
 		<result property="vol_type_yn" column="vol_type_yn" />
 		<result property="vol_company_yn" column="vol_company_yn" />
 		<result property="vol_admin_yn" column="vol_admin_yn" />
@@ -60,7 +62,25 @@
 
 
 	<!-- update -->
-	
+	<update id="updateVolunteerDetail" parameterClass="volunteerDTO">
+		update TB_VOLUNTEER
+		SET 
+			vol_phone_1 = #vol_phone_1#,
+			vol_phone_2 = #vol_phone_2#,
+			vol_hope_center_code = #vol_hope_center_code#,
+			vol_hope_plc_1 = #vol_hope_plc_1#,
+			vol_hope_plc_2 = #vol_hope_plc_2#,
+			vol_hope_sev_1 = #vol_hope_sev_1#,
+			vol_hope_sev_2 = #vol_hope_sev_2#,
+			vol_hope_sev_3 = #vol_hope_sev_3#,
+			vol_job = #vol_job#,
+			vol_hope_date = #vol_hope_date#,
+			vol_hope_str_time = #vol_hope_str_time#,
+			vol_hope_end_time = #vol_hope_end_time#,
+			vol_spec_dtl = #vol_spec_dtl#,
+			vol_group_yn = #vol_group_yn#
+		where volunteer_id = #volunteer_id#
+	</update>
 	
 	
 	<!-- delete -->
