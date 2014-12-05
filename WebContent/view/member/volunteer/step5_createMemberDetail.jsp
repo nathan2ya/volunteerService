@@ -15,18 +15,6 @@
 		//submit
 		function goCreateDetail(){
 			
-			//휴대폰번호
-			var vol_phone_1_1 = document.getElementById("vol_phone_1_1").value;;
-			var vol_phone_1_2 = document.getElementById("vol_phone_1_2").value;;
-			var vol_phone_1_3 = document.getElementById("vol_phone_1_3").value;;
-			document.getElementById("vol_phone_1").value = vol_phone_1_1+"-"+vol_phone_1_2+"-"+vol_phone_1_3;
-			
-			//유선전화번호
-			var vol_phone_2_1 = document.getElementById("vol_phone_2_1").value;
-			var vol_phone_2_2 = document.getElementById("vol_phone_2_2").value;
-			var vol_phone_2_3 = document.getElementById("vol_phone_2_3").value;
-			document.getElementById("vol_phone_2").value = vol_phone_2_1+"-"+vol_phone_2_2+"-"+vol_phone_2_3;
-			
 			//체크된 희망요일 (요일,요일)
 			var days = "";
 			if(document.getElementById("mon").checked){ days += "1"; }
@@ -78,11 +66,6 @@
 		); 
 		
 		
-		
-		
-		
-		
-		
 
 		//selecthtml1
 		var selecthtml1 = ""; 
@@ -116,8 +99,6 @@
 		   // selecthtml2을 span S2 에 넣어준다 
 		   document.getElementById("hope_cen_2").innerHTML = selecthtml2; 
 		} 
-		
-		
 		
 		
 		
