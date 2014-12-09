@@ -55,6 +55,15 @@
 	
 	
 	<!-- select -->
+	<select id="selectCountForLogin" resultClass="int" parameterClass="demanderDTO">
+		select count(*) FROM TB_DEMANDER
+		where demander_id = #demander_id# and dem_pw = #dem_pw#
+	</select>
+	
+	<select id="selectDemanderOne" resultMap="demanderRes" parameterClass="java.lang.String">
+		select * from TB_DEMANDER
+		where demander_id = #demander_id#
+	</select>
 
 
 
