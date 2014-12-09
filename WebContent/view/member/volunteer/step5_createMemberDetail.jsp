@@ -76,13 +76,10 @@
 		selecthtml1 += '</select>'; 
 		
 		
-		// select1 선택시 select2값들을 span S2 에 뿌려줌 
 		function Selected(){ 
-		
 		   // select1 에서 선택한 값 
 		   var str = document.getElementById("select1").value; 
 		
-		   // span S2 에 넣을 셀렉트 태그구문 
 		   var selecthtml2 = ""; 
 		   selecthtml2 += '<select id="select2" name="select2">'; 
 		
@@ -93,18 +90,17 @@
 		         } 
 		      } 
 		   } 
-		
 		   selecthtml2 += '</select>'; 
 		
-		   // selecthtml2을 span S2 에 넣어준다 
+		   // selecthtml2을 hope_cen_2 에 넣어준다 
 		   document.getElementById("hope_cen_2").innerHTML = selecthtml2; 
 		} 
 		
 		
-		
 		window.onload = function(){ 
-			document.getElementById("hope_cen_1").innerHTML = selecthtml1; // selecthtml1을 vol_hope_plc_2 에 넣어준다 
+			alert("ready!!");
 			
+			document.getElementById("hope_cen_1").innerHTML = selecthtml1; // selecthtml1을 hope_cen_1 에 넣어준다 
 			Selected(); //select1 이 선택되어 있을경우 같이 보여주기 위해
 		} 
 		

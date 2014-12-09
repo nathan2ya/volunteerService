@@ -11,8 +11,6 @@
 		
 		//submit
 		function goCreateBasic(type){
-			alert("진입");
-			
 			//선택사항입력 or 저장
 			document.getElementById("confrimType").value = type;
 			
