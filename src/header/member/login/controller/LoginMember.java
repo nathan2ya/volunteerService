@@ -62,8 +62,6 @@ public class LoginMember {
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
 		
-		System.out.println(memberType); System.out.println(user_id); System.out.println(user_pw);
-		
 		//사용자 ID, PW 체크
 		Integer count = null;
 		if(memberType.equals("vo")){
@@ -75,7 +73,6 @@ public class LoginMember {
 			demanderDTO.setDem_pw(user_pw);
 			count = (Integer) sqlMapper.queryForObject("Demander.selectCountForLogin", demanderDTO);
 		}
-		System.out.println(count);
 		
 		//사용자 확인 될 경우 세션 생성
 		if(count==1){
