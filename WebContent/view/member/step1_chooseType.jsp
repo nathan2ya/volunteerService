@@ -53,8 +53,6 @@
 		}
 		
 		
-		
-		
 		$(document).ready(function(){
 			var type = "${type}";
 			if(type == 1){
