@@ -94,14 +94,4 @@ public class LoginMember {
 		return url;
 	}
 	
-	//회원 로그아웃
-	@RequestMapping("/logout.do")
-	public String logout(HttpSession session) throws Exception{
-		
-		//세션제거
-		session.invalidate();
-		return "redirect:/main.do";
-	}
-	
-	
-}
+}//end of class
