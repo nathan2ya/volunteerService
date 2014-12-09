@@ -56,7 +56,7 @@
 	
 	<!-- select -->
 	<select id="selectCountForLogin" resultClass="int" parameterClass="demanderDTO">
-		select count(*) FROM TB_DEMANDER
+		select count(*) from TB_DEMANDER
 		where demander_id = #demander_id# and dem_pw = #dem_pw#
 	</select>
 	
@@ -64,7 +64,11 @@
 		select * from TB_DEMANDER
 		where demander_id = #demander_id#
 	</select>
-
+	
+	<select id="selectCountForStipulation" resultClass="int" parameterClass="demanderDTO">
+		select count(*) from TB_DEMANDER
+		where dem_ins_name = #dem_ins_name# and dem_resnum = #dem_resnum#
+	</select>
 
 
 	<!-- update -->

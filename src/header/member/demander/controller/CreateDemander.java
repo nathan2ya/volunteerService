@@ -26,6 +26,7 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 public class CreateDemander {
 	
 	private String url; // return URL
+	private DemanderDTO demanderDTO = new DemanderDTO();
 	
 	//DB커넥트 인스턴스 변수
 	SqlMapClientTemplate ibatis = null;
@@ -44,10 +45,19 @@ public class CreateDemander {
 	//회원가입.수요처 step2 - 약관동의
 	@RequestMapping("/step2_deStipulation.do")
 	public String step2_deStipulation(HttpServletRequest request) throws Exception{
-		String demander = request.getParameter("demander");
+		String dem_ins_name = request.getParameter("dem_ins_name");
 		String dem_resnum = request.getParameter("dem_resnum");
 		
-		return "/view/member/demander/step2_stipulation.jsp";
+		demanderDTO.setDem_ins_name(dem_ins_name);
+		demanderDTO.setDem_resnum(dem_resnum);
+		Integer count = (Integer) sqlMapper.queryForObject("Demander.selectCountForStipulation", demanderDTO);
+		
+		if(count==1){
+			url = "redirect:/step1_chooseType.do?type=1";
+		}else{
+			url = "/view/member/demander/step2_stipulation.jsp";
+		}
+		return url;
 	}
 	
 	//회원가입.수요처 step3 - 본인인증

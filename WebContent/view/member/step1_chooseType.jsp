@@ -44,7 +44,7 @@
 				vo.vol_email.value = step1_choicetype.email1.value + "@" + step1_choicetype.email2.value;
 				vo.submit();
 			}else if(type == 'de'){
-				de.demander.value = step1_choicetype.demander.value;
+				de.dem_ins_name.value = step1_choicetype.dem_ins_name.value;
 				de.dem_resnum.value = step1_choicetype.demander_register1.value + 
 									  step1_choicetype.demander_register2.value +
 									  step1_choicetype.demander_register3.value;
@@ -144,7 +144,7 @@
 									<td align="right" width="149" bgcolor="#fafcfd" height="20">* ±â°ü¸í</td>
 									<td bgcolor=#ffffff>
 										<font color=#555555 size=2>
-											<input id="demander" maxlength="16" size="16" name="demander" /> 
+											<input type="text" maxlength="16" size="16" name="dem_ins_name" id="dem_ins_name" /> 
 										</font>
 									</td>
 								</tr>
@@ -184,7 +184,7 @@
 	</form>
 	
 	<form name="de" action="/volunteerService/step2_deStipulation.do" method="post">
-		<input type="hidden" name="demander" id="demander" /> 
+		<input type="hidden" name="dem_ins_name" id="dem_ins_name" /> 
 		<input type="hidden" name="dem_resnum" id="dem_resnum" />
 	</form>
 	
