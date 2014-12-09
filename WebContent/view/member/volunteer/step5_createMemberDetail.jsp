@@ -75,7 +75,7 @@
 		} 
 		selecthtml1 += '</select>'; 
 		
-		
+		//select
 		function Selected(){ 
 		   // select1 에서 선택한 값 
 		   var str = document.getElementById("select1").value; 
@@ -92,16 +92,13 @@
 		   } 
 		   selecthtml2 += '</select>'; 
 		
-		   // selecthtml2을 hope_cen_2 에 넣어준다 
 		   document.getElementById("hope_cen_2").innerHTML = selecthtml2; 
 		} 
 		
 		
 		window.onload = function(){ 
-			alert("ready!!");
-			
-			document.getElementById("hope_cen_1").innerHTML = selecthtml1; // selecthtml1을 hope_cen_1 에 넣어준다 
-			Selected(); //select1 이 선택되어 있을경우 같이 보여주기 위해
+			document.getElementById("hope_cen_1").innerHTML = selecthtml1;
+			Selected();
 		} 
 		
 		//여기까지
