@@ -56,12 +56,13 @@ public class LoginMember {
 	//회원 로그인
 	@RequestMapping("login.do")
 	public String login(HttpServletRequest request, HttpSession session) throws SQLException{
-		System.out.println("로그인어노");
 		
 		//사용자가 로그인 요청한 입력값
 		String memberType = request.getParameter("memberType"); //vo:일반, de:기관
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
+		
+		System.out.println(memberType); System.out.println(user_id); System.out.println(user_pw);
 		
 		//사용자 ID, PW 체크
 		Integer count = null;
@@ -74,6 +75,7 @@ public class LoginMember {
 			demanderDTO.setDem_pw(user_pw);
 			count = (Integer) sqlMapper.queryForObject("Demander.selectCountForLogin", demanderDTO);
 		}
+		System.out.println(count);
 		
 		//사용자 확인 될 경우 세션 생성
 		if(count==1){
@@ -95,7 +97,6 @@ public class LoginMember {
 	//회원 로그아웃
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) throws Exception{
-		System.out.println("로그아웃 어노");
 		
 		//세션제거
 		session.invalidate();
