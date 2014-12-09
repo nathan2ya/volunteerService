@@ -47,19 +47,19 @@ public class CreateDemander {
 		return "/view/member/demander/step2_stipulation.jsp";
 	}
 	
-	//회원가입.자원봉사자 step3 - 본인인증
+	//회원가입.수요처 step3 - 본인인증
 	@RequestMapping("/step3_deCertification.do")
 	public String step3_deCertification() throws Exception{
 		return "/view/member/demander/step3_certification.jsp";
 	}
 	
-	//회원가입.자원봉사자 step4 - Basic 폼
+	//회원가입.수요처 step4 - Basic 폼
 	@RequestMapping("/step4_deCreateMemberBasicForm.do")
 	public String step4_deCreateMemberBasicForm() throws Exception{
 		return "/view/member/demander/step4_createMemberBasic.jsp";
 	}
 	
-	//회원가입.자원봉사자 Basic - DB insert
+	//회원가입.수요처 Basic - DB insert
 	@RequestMapping("/deCreateMemberBasic.do")
 	public String deCreateMemberBasic(HttpServletRequest request, @ModelAttribute("DemanderDTO") DemanderDTO dto) throws Exception{
 		
@@ -108,11 +108,40 @@ public class CreateDemander {
 		return url;
 	}
 	
-	//회원가입.자원봉사자 step5 - Detail 폼
+	//회원가입.수요처 step5 - Detail 폼
 	@RequestMapping("/step5_deCreateMemberDetailForm.do")
 	public String step5_deCreateMemberDetailForm(HttpServletRequest request) throws Exception{
 		request.setAttribute("demander_id", request.getParameter("demander_id"));
 		return "/view/member/demander/step5_createMemberDetail.jsp";
+	}
+	
+	//회원가입.수요처 detail - DB update
+	@RequestMapping("/deCreateMemberDetail.do")
+	public String deCreateMemberDetail(HttpServletRequest request, @ModelAttribute("DemanderDTO") DemanderDTO dto) throws Exception{
+		
+		//사무실연락처
+		String dem_phone = request.getParameter("dem_phone_1")+"-"+
+						   request.getParameter("dem_phone_2")+"-"+
+						   request.getParameter("dem_phone_3");
+		
+		//FAX
+		String dem_fax = request.getParameter("dem_fax_1")+"-"+
+						 request.getParameter("dem_fax_2")+"-"+
+						 request.getParameter("dem_fax_3");
+		
+		//담당자연락처
+		String dem_cha_phone = request.getParameter("dem_cha_phone_1")+"-"+
+							   request.getParameter("dem_cha_phone_1")+"-"+
+							   request.getParameter("dem_cha_phone_1");
+		
+		//DTO set
+		dto.setDem_phone(dem_phone);
+		dto.setDem_fax(dem_fax);
+		dto.setDem_cha_phone(dem_cha_phone);
+		
+		//DB update
+		sqlMapper.update("Demander.updateDemanderDetail", dto);
+		return "redirect:/step6_complete.do";
 	}
 
 }//end of class

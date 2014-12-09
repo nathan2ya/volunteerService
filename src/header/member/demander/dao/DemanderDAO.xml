@@ -59,10 +59,22 @@
 
 
 	<!-- update -->
-
+	<update id="updateDemanderDetail" parameterClass="demanderDTO">
+		update TB_DEMANDER
+		SET 
+			dem_phone = #dem_phone#,
+			dem_fax = #dem_fax#,
+			dem_cha_phone = #dem_cha_phone#,
+			dem_fac_type = #dem_fac_type#,
+			dem_max_people = #dem_max_people#,
+			dem_vol_type = #dem_vol_type#
+		where demander_id = #demander_id#
+	</update>
 
 	
+	
 	<!-- delete -->
+	
 	
 	
 	
