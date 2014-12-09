@@ -59,8 +59,13 @@
 	
 	<!-- select -->
 	<select id="selectCountForLogin" resultClass="int" parameterClass="volunteerDTO">
-		select count(*) FROM TB_VOLUNTEER
+		select count(*) from TB_VOLUNTEER
 		where volunteer_id = #volunteer_id# and vol_pw = #vol_pw#
+	</select>
+	
+	<select id="selectCountForStipulation" resultClass="int" parameterClass="volunteerDTO">
+		select count(*) from TB_VOLUNTEER
+		where vol_name = #vol_name# and vol_email = #vol_email#
 	</select>
 	
 	<select id="selectVolunteerOne" resultMap="volunteerRes" parameterClass="java.lang.String">

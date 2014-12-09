@@ -7,6 +7,8 @@
 
 	<title>회원가입</title>
 	
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script language=JavaScript>
 	
 		//일반, 기관 선택
@@ -14,9 +16,11 @@
 			if(document.forms[0].group[0].checked == true){
 				volunteer.style.display = "block";
 				demander.style.display = "none";
+				step1_choicetype.vol_name.focus();
 			}else if(document.forms[0].group[1].checked == true){
 				volunteer.style.display = "none";
 				demander.style.display = "block";
+				step1_choicetype.demander.focus();
 			}
 		}
 		
@@ -47,6 +51,17 @@
 				de.submit();
 			}
 		}
+		
+		
+		
+		
+		$(document).ready(function(){
+			var type = "${type}";
+			if(type == 1){
+				alert("이미 회원가입을 한 상태입니다");
+			}
+			step1_choicetype.vol_name.focus();
+		});
 		
 	</script>
 	

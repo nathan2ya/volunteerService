@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+
 import common.lib.VolunteerCode;
 
 
@@ -30,6 +31,7 @@ public class CreateVolunteer {
 	
 	private String url; // return URL
 	private String vol_code; // 자원봉사코드
+	private VolunteerDTO volunteerDTO = new VolunteerDTO();
 	
 	//DB커넥트 인스턴스 변수
 	SqlMapClientTemplate ibatis = null;
@@ -51,7 +53,17 @@ public class CreateVolunteer {
 		String vol_name = request.getParameter("vol_name");
 		String vol_email = request.getParameter("vol_email");
 		
-		return "/view/member/volunteer/step2_stipulation.jsp";
+		volunteerDTO.setVol_name(vol_name);
+		volunteerDTO.setVol_email(vol_email);
+		Integer count = (Integer) sqlMapper.queryForObject("Volunteer.selectCountForStipulation", volunteerDTO);
+		
+		if(count==1){
+			url = "redirect:/step1_chooseType.do?type=1";
+		}else{
+			url = "/view/member/volunteer/step2_stipulation.jsp";
+		}
+		
+		return url;
 	}
 	
 	

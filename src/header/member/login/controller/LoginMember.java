@@ -49,7 +49,6 @@ public class LoginMember {
 	//회원로그인폼
 	@RequestMapping("/loginForm.do")
 	public String loginForm(HttpServletRequest request){
-		
 		return "/view/login/login.jsp";
 	}
 	
