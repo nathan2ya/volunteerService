@@ -146,7 +146,7 @@
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">사업자등록번호</td>
 				<td width="550" height="8" align="left">
-					<input type="text" name="dem_resnum" id="dem_resnum" size="30" maxlength="20" />
+					<input type="text" name="dem_resnum" id="dem_resnum" size="20" maxlength="10" />
 				</td>
 			</tr>
 			

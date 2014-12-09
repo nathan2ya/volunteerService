@@ -63,24 +63,28 @@
 					</td>
 				</tr>
 				
-				<tr valign=top>
+				<tr valign="top">
 				
-					<td style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px" colspan=4>
+					<td colspan=4>
 					
-						<div id=volunteer>
-							<table cellspacing=1 cellpadding=5 width="100%">
+						<div id="volunteer">
+							<table cellspacing="1" cellpadding="5" width="100%">
 								<tbody>
 									<tr>
-									<td align=right width=149 bgcolor=#fafcfd height=20><font color=#555555>* 이름</font></td>
-										<td bgcolor=#ffffff>
+										<td align="right" width="149" bgcolor="#fafcfd" height="20">
+											<font color="#555555">* 이름</font>
+										</td>
+										<td bgcolor="#ffffff">
 											<font color=#555555 size=2>
-												<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=25 size=15 name="vol_name" option="isnumber"> 
+												<input type="text" name="vol_name" size="15" maxlength="25" /> 
 											</font>
 										</td>
 									</tr>
 									
 									<tr>
-									<td align=right width=149 bgcolor=#fafcfd height=20><font color=#555555>* 이메일</font></td>
+										<td align=right width=149 bgcolor=#fafcfd height=20>
+											<font color=#555555>* 이메일</font>
+										</td>
 										<td bgcolor=#ffffff>
 											<font color=#555555 size=2>
 												<input type="text" name="email1" id="email1" class="box" size="15"> @ 
@@ -119,30 +123,31 @@
 							</table>
 						</div>
 						
-						<div id=demander style="display: none">
+						<div id="demander" style="display: none">
 							<table cellspacing=1 cellpadding=5 width="100%">
 								<tbody>
 									<tr>
-										<td align=right width=149 bgcolor=#fafcfd height=20>* 기관명</td>
+										<td align="right" width="149" bgcolor="#fafcfd" height="20">* 기관명</td>
 										<td bgcolor=#ffffff>
-											<font color=#555555 size=2><input id=demander style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=16 size=16 name=demander> 
+											<font color=#555555 size=2>
+												<input id="demander" maxlength="16" size="16" name="demander" /> 
 											</font>
 										</td>
 									</tr>
 									<tr>
-										<td align=right bgcolor=#fafcfd height=20>* 사업자등록번호</td>
-										<td bgcolor=#ffffff colspan=3>
-											<font color=#555555 size=2>
-											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=3 size=6 name=demander_register1 > - 
-											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=2 size=6 name=demander_register2 > - 
-											<input style="border-right: gray 1px solid; border-top: gray 1px solid; border-left: gray 1px solid; border-bottom: gray 1px solid" maxlength=5 size=6 name=demander_register3 > 
+										<td align="right" bgcolor="#fafcfd" height="20">* 사업자등록번호</td>
+										<td bgcolor="#ffffff" colspan="3">
+											<font color="#555555" size="2">
+											<input type="text" name="demander_register1" size="6" maxlength="3" /> - 
+											<input type="text" name="demander_register2" size="6" maxlength="2" /> - 
+											<input type="text" name="demander_register3" size="6" maxlength="5" /> 
 											</font>
 										</td>
 									</tr>
 									
 									<tr>
 										<td>
-											<input  type="button" name="confrim"  value="확인" onclick="cofirm('de')"/>
+											<input type="button" name="confrim" value="확인" onclick="cofirm('de')"/>
 										</td>
 									</tr>
 									
