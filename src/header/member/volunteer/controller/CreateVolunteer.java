@@ -47,7 +47,10 @@ public class CreateVolunteer {
 	
 	//회원가입.자원봉사자 step2 - 약관동의
 	@RequestMapping("/step2_voStipulation.do")
-	public String step2_voStipulation() throws Exception{
+	public String step2_voStipulation(HttpServletRequest request) throws Exception{
+		String vol_name = request.getParameter("vol_name");
+		String vol_email = request.getParameter("vol_email");
+		
 		return "/view/member/volunteer/step2_stipulation.jsp";
 	}
 	

@@ -34,14 +34,18 @@
 		
 		//일반, 기관 다음Step
 		function cofirm(type){
-			var url = "";
 			
 			if(type == 'vo'){
-				url = "/volunteerService/step2_voStipulation.do";
+				vo.vol_name.value = step1_choicetype.vol_name.value;
+				vo.vol_email.value = step1_choicetype.email1.value + "@" + step1_choicetype.email2.value;
+				vo.submit();
 			}else if(type == 'de'){
-				url = "/volunteerService/step2_deStipulation.do";
+				de.demander.value = step1_choicetype.demander.value;
+				de.dem_resnum.value = step1_choicetype.demander_register1.value + 
+									  step1_choicetype.demander_register2.value +
+									  step1_choicetype.demander_register3.value;
+				de.submit();
 			}
-			location.href = url;
 		}
 		
 	</script>
@@ -55,113 +59,120 @@
 	
 		<table>
 		
-			<tbody>
-				<tr>
-					<td bgcolor=#ffffff colspan=3>
-						<input onclick="group_change();" type="radio" value="volunteer" name="group" checked> 일반
-						<input onclick="group_change();" type="radio" value="demander" name="group"> 기관
-					</td>
-				</tr>
+			<tr>
+				<td bgcolor=#ffffff colspan=3>
+					<input onclick="group_change();" type="radio" value="volunteer" name="group" checked> 일반
+					<input onclick="group_change();" type="radio" value="demander" name="group"> 기관
+				</td>
+			</tr>
+			
+			<tr valign="top">
+			
+				<td colspan=4>
 				
-				<tr valign="top">
-				
-					<td colspan=4>
+					<div id="volunteer">
+						<table cellspacing="1" cellpadding="5" width="100%">
+							<tbody>
+								<tr>
+									<td align="right" width="149" bgcolor="#fafcfd" height="20">
+										<font color="#555555">* 이름</font>
+									</td>
+									<td bgcolor="#ffffff">
+										<font color=#555555 size=2>
+											<input type="text" name="vol_name" id="vol_name" size="15" maxlength="25" />
+										</font>
+									</td>
+								</tr>
+								
+								<tr>
+									<td align=right width=149 bgcolor=#fafcfd height=20>
+										<font color=#555555>* 이메일</font>
+									</td>
+									<td bgcolor=#ffffff>
+										<font color=#555555 size=2>
+											<input type="text" name="email1" id="email1" class="box" size="15"> @ 
+											<input type="text" name="email2" id="email2" class="box" size="20">
+											<select name="email_select" id="email_select" class="box" onChange="selectEmail(this.form);">
+											    <option value="" selected>선택하세요</option>
+											    <option value="empal.com">empal.com</option>
+											    <option value="dreamwiz.com">dreamwiz.com</option>
+											    <option value="naver.com">naver.com</option>
+											    <option value="hotmail.com">hotmail.com</option>
+											    <option value="chollian.net">chollian.net</option>
+											    <option value="freechal.com">freechal.com</option>
+											    <option value="hanafos.com">hanafos.com</option>
+											    <option value="kebi.com">kebi.com</option>
+											    <option value="korea.com">korea.com</option>
+											    <option value="lycos.co.kr">lycos.co.kr</option>
+											    <option value="netian.com">netian.com</option>
+											    <option value="netsgo.com">netsgo.com</option>
+											    <option value="unitel.co.kr">unitel.co.kr</option>
+											    <option value="yahoo.co.kr">yahoo.co.kr</option>
+											    <option value="1">직접입력</option>
+											</select>
+										</font>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<input  type="button" name="confrim"  value="확인" onclick="cofirm('vo')"/>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
 					
-						<div id="volunteer">
-							<table cellspacing="1" cellpadding="5" width="100%">
-								<tbody>
-									<tr>
-										<td align="right" width="149" bgcolor="#fafcfd" height="20">
-											<font color="#555555">* 이름</font>
-										</td>
-										<td bgcolor="#ffffff">
-											<font color=#555555 size=2>
-												<input type="text" name="vol_name" size="15" maxlength="25" /> 
-											</font>
-										</td>
-									</tr>
-									
-									<tr>
-										<td align=right width=149 bgcolor=#fafcfd height=20>
-											<font color=#555555>* 이메일</font>
-										</td>
-										<td bgcolor=#ffffff>
-											<font color=#555555 size=2>
-												<input type="text" name="email1" id="email1" class="box" size="15"> @ 
-												<input type="text" name="email2" id="email2" class="box" size="20">
-												
-												<select name="email_select" id="email_select" class="box" onChange="selectEmail(this.form);">
-												    <option value="" selected>선택하세요</option>
-												    <option value="empal.com">empal.com</option>
-												    <option value="dreamwiz.com">dreamwiz.com</option>
-												    <option value="naver.com">naver.com</option>
-												    <option value="hotmail.com">hotmail.com</option>
-												    <option value="chollian.net">chollian.net</option>
-												    <option value="freechal.com">freechal.com</option>
-												    <option value="hanafos.com">hanafos.com</option>
-												    <option value="kebi.com">kebi.com</option>
-												    <option value="korea.com">korea.com</option>
-												    <option value="lycos.co.kr">lycos.co.kr</option>
-												    <option value="netian.com">netian.com</option>
-												    <option value="netsgo.com">netsgo.com</option>
-												    <option value="unitel.co.kr">unitel.co.kr</option>
-												    <option value="yahoo.co.kr">yahoo.co.kr</option>
-												    <option value="1">직접입력</option>
-												</select>
-																								 
-											</font>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<input  type="button" name="confrim"  value="확인" onclick="cofirm('vo')"/>
-										</td>
-									</tr>
-									
-								</tbody>
-							</table>
-						</div>
-						
-						<div id="demander" style="display: none">
-							<table cellspacing=1 cellpadding=5 width="100%">
-								<tbody>
-									<tr>
-										<td align="right" width="149" bgcolor="#fafcfd" height="20">* 기관명</td>
-										<td bgcolor=#ffffff>
-											<font color=#555555 size=2>
-												<input id="demander" maxlength="16" size="16" name="demander" /> 
-											</font>
-										</td>
-									</tr>
-									<tr>
-										<td align="right" bgcolor="#fafcfd" height="20">* 사업자등록번호</td>
-										<td bgcolor="#ffffff" colspan="3">
-											<font color="#555555" size="2">
+					<div id="demander" style="display: none">
+						<table cellspacing=1 cellpadding=5 width="100%">
+							<tbody>
+								<tr>
+									<td align="right" width="149" bgcolor="#fafcfd" height="20">* 기관명</td>
+									<td bgcolor=#ffffff>
+										<font color=#555555 size=2>
+											<input id="demander" maxlength="16" size="16" name="demander" /> 
+										</font>
+									</td>
+								</tr>
+								<tr>
+									<td align="right" bgcolor="#fafcfd" height="20">* 사업자등록번호</td>
+									<td bgcolor="#ffffff" colspan="3">
+										<font color="#555555" size="2">
 											<input type="text" name="demander_register1" size="6" maxlength="3" /> - 
 											<input type="text" name="demander_register2" size="6" maxlength="2" /> - 
-											<input type="text" name="demander_register3" size="6" maxlength="5" /> 
-											</font>
-										</td>
-									</tr>
-									
-									<tr>
-										<td>
-											<input type="button" name="confrim" value="확인" onclick="cofirm('de')"/>
-										</td>
-									</tr>
-									
-								</tbody>
-							</table>
-						</div>
-						
-					</td>
+											<input type="text" name="demander_register3" size="6" maxlength="5" />
+										</font>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<input type="button" name="confrim" value="확인" onclick="cofirm('de')"/>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
 					
-				</tr>
-			</tbody>
+				</td>
+				
+			</tr>
 			
 		</table>
 		
+	</form>
+	
+	
+	<form name="vo" action="/volunteerService/step2_voStipulation.do" method="post">
+		<input type="hidden" name="vol_name" id="vol_name"/>
+		<input type="hidden" name="vol_email" id="vol_email"/>
+	</form>
+	
+	<form name="de" action="/volunteerService/step2_deStipulation.do" method="post">
+		<input type="hidden" name="demander" id="demander" /> 
+		<input type="hidden" name="dem_resnum" id="dem_resnum" />
 	</form>
 	
 </body>

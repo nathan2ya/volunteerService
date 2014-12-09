@@ -43,7 +43,10 @@ public class CreateDemander {
 	
 	//회원가입.수요처 step2 - 약관동의
 	@RequestMapping("/step2_deStipulation.do")
-	public String step2_deStipulation() throws Exception{
+	public String step2_deStipulation(HttpServletRequest request) throws Exception{
+		String demander = request.getParameter("demander");
+		String dem_resnum = request.getParameter("dem_resnum");
+		
 		return "/view/member/demander/step2_stipulation.jsp";
 	}
 	
