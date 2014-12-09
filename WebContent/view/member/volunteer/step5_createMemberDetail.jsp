@@ -75,9 +75,8 @@
 		} 
 		selecthtml1 += '</select>'; 
 		
-		//select
+		//Selected
 		function Selected(){ 
-		   // select1 에서 선택한 값 
 		   var str = document.getElementById("select1").value; 
 		
 		   var selecthtml2 = ""; 
