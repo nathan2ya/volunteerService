@@ -127,8 +127,6 @@ public class CreateVolunteer {
 	//회원가입.자원봉사자 detail - DB update
 	@RequestMapping("/voCreateMemberDetail.do")
 	public String voCreateMemberDetail(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
-		System.out.println("폰번 "+dto.getVol_phone_2());
-		
 		//DB update
 		sqlMapper.update("Volunteer.updateVolunteerDetail", dto);
 		return "redirect:/step6_complete.do";

@@ -22,13 +22,13 @@
 		}; 
 		
 		// 도/시 
-		var Arr1 = new Array(
+		var arr1_city = new Array(
 				"도/시 선택","서울특별시","부산광역시","대구광역시","인천광역시","광주광역시","대전광역시","울산광역시","세종특별자치시",
 				"경기도","강원도","충청북도","충청남도","전라북도","전라남도","경상북도","경상남도","제주특별자치도");
 		
 		// 구/군
-		var Arr2 = new Array( 
-			// Arr1 배열값, 선택된 값에 보여줄 값들 
+		var arr2_gun = new Array( 
+			// arr1_city 배열값, 선택된 값에 보여줄 값들 
 			new Array("도/시 선택","구/군 선택")
 			,new Array("서울특별시","전체","종로구","중구","용산구","성동구","광진구","동대문구","중랑구","성북구","강북구","도봉구","노원구","은평구",
 					   "서대문구","마포구","양천구","강서구","구로구","금천구","영등포구","동작구","관악구","서초구","강남구","송파구","강동구")
@@ -54,8 +54,8 @@
 		//봉사희망지역(소속센터)
 		var hopeHtml_1 = ""; 
 		hopeHtml_1 += '<select id="hopeSelect_1" name="hopeSelect_1" onChange="Selected();">'; 
-		for(var i = 0;i < Arr1.length ; i++){ 
-		   hopeHtml_1 += '<option value="'+Arr1[i]+'">'+Arr1[i]+'</option>'; 
+		for(var i = 0;i < arr1_city.length ; i++){ 
+		   hopeHtml_1 += '<option value="'+arr1_city[i]+'">'+arr1_city[i]+'</option>'; 
 		} 
 		hopeHtml_1 += '</select>'; 
 		
@@ -63,10 +63,10 @@
 		   var str = document.getElementById("hopeSelect_1").value;
 		   var hopeHtml_2 = ""; 
 		   hopeHtml_2 += '<select id="hopeSelect_2" name="hopeSelect_2">'; 
-		   for(var i = 0;i < Arr2.length ; i++){ 
-		      if(Arr2[i][0] == str ){ 
-		         for(var j = 1 ; j < Arr2[i].length; j++){ 
-		            hopeHtml_2 += '<option value="'+Arr2[i][j]+'">'+Arr2[i][j]+'</option>'; 
+		   for(var i = 0;i < arr2_gun.length ; i++){ 
+		      if(arr2_gun[i][0] == str ){ 
+		         for(var j = 1 ; j < arr2_gun[i].length; j++){ 
+		            hopeHtml_2 += '<option value="'+arr2_gun[i][j]+'">'+arr2_gun[i][j]+'</option>'; 
 		         } 
 		      } 
 		   } 
@@ -77,8 +77,8 @@
 		//봉사희망지역(선택1)
 		var hopeHtml1_1 = ""; 
 		hopeHtml1_1 += '<select id="hopeSelect1_1" name="hopeSelect1_1" onChange="Selected1();">'; 
-		for(var i = 0;i < Arr1.length ; i++){ 
-		   hopeHtml1_1 += '<option value="'+Arr1[i]+'">'+Arr1[i]+'</option>'; 
+		for(var i = 0;i < arr1_city.length ; i++){ 
+		   hopeHtml1_1 += '<option value="'+arr1_city[i]+'">'+arr1_city[i]+'</option>'; 
 		} 
 		hopeHtml1_1 += '</select>'; 
 		
@@ -86,10 +86,10 @@
 		   var str = document.getElementById("hopeSelect1_1").value;
 		   var hopeHtml1_2 = ""; 
 		   hopeHtml1_2 += '<select id="hopeSelect1_2" name="hopeSelect1_2">'; 
-		   for(var i = 0;i < Arr2.length ; i++){ 
-		      if(Arr2[i][0] == str ){ 
-		         for(var j = 1 ; j < Arr2[i].length; j++){ 
-		            hopeHtml1_2 += '<option value="'+Arr2[i][j]+'">'+Arr2[i][j]+'</option>'; 
+		   for(var i = 0;i < arr2_gun.length ; i++){ 
+		      if(arr2_gun[i][0] == str ){ 
+		         for(var j = 1 ; j < arr2_gun[i].length; j++){ 
+		            hopeHtml1_2 += '<option value="'+arr2_gun[i][j]+'">'+arr2_gun[i][j]+'</option>'; 
 		         } 
 		      } 
 		   } 
@@ -100,8 +100,8 @@
 		//봉사희망지역(선택2)
 		var hopeHtml2_1 = ""; 
 		hopeHtml2_1 += '<select id="hopeSelect2_1" name="hopeSelect2_1" onChange="Selected2();">'; 
-		for(var i = 0;i < Arr1.length ; i++){ 
-		   hopeHtml2_1 += '<option value="'+Arr1[i]+'">'+Arr1[i]+'</option>'; 
+		for(var i = 0;i < arr1_city.length ; i++){ 
+		   hopeHtml2_1 += '<option value="'+arr1_city[i]+'">'+arr1_city[i]+'</option>'; 
 		} 
 		hopeHtml2_1 += '</select>'; 
 		
@@ -109,10 +109,10 @@
 		   var str = document.getElementById("hopeSelect2_1").value;
 		   var hopeHtml2_2 = ""; 
 		   hopeHtml2_2 += '<select id="hopeSelect2_2" name="hopeSelect2_2">'; 
-		   for(var i = 0;i < Arr2.length ; i++){ 
-		      if(Arr2[i][0] == str ){ 
-		         for(var j = 1 ; j < Arr2[i].length; j++){ 
-		            hopeHtml2_2 += '<option value="'+Arr2[i][j]+'">'+Arr2[i][j]+'</option>'; 
+		   for(var i = 0;i < arr2_gun.length ; i++){ 
+		      if(arr2_gun[i][0] == str ){ 
+		         for(var j = 1 ; j < arr2_gun[i].length; j++){ 
+		            hopeHtml2_2 += '<option value="'+arr2_gun[i][j]+'">'+arr2_gun[i][j]+'</option>'; 
 		         } 
 		      } 
 		   } 
@@ -128,12 +128,18 @@
 			var vol_phone_1_2 = document.getElementById("vol_phone_1_2").value;
 			var vol_phone_1_3 = document.getElementById("vol_phone_1_3").value;
 			document.getElementById("vol_phone_1").value = vol_phone_1_1 + "-" + vol_phone_1_2 + "-" + vol_phone_1_3;
+			if(vol_phone_1_2 == "" || vol_phone_1_3 == ""){
+				document.getElementById("vol_phone_1").value = "";
+			}
 			
 			//유선전화번호
 			var vol_phone_2_1 = document.getElementById("vol_phone_2_1").value;
 			var vol_phone_2_2 = document.getElementById("vol_phone_2_2").value;
 			var vol_phone_2_3 = document.getElementById("vol_phone_2_3").value;
 			document.getElementById("vol_phone_2").value = vol_phone_2_1 + "-" + vol_phone_2_2 + "-" + vol_phone_2_3;
+			if(vol_phone_2_2 == "" || vol_phone_2_3 == ""){
+				document.getElementById("vol_phone_2").value = "";
+			}
 			
 			//체크된 희망요일 (요일,요일)
 			var days = "";
