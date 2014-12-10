@@ -19,12 +19,10 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 import common.lib.VolunteerCode;
 
-
 /*
  * 작성자 : 류재욱
  * 설  명 : 자원봉사자 회원가입 컨트롤러
 */
-
 
 @Controller
 public class CreateVolunteer {

@@ -40,10 +40,40 @@
 		function cofirm(type){
 			
 			if(type == 'vo'){
+				if(!step1_choicetype.vol_name.value){
+					alert("이름을 입력해주세요.");
+					step1_choicetype.vol_name.focus();
+					return false;
+				}
+				if(!step1_choicetype.email1.value || !step1_choicetype.email2.value){
+					alert("이메일 주소를 입력해주세요.");
+					step1_choicetype.email1.focus();
+					return false;
+				}
 				vo.vol_name.value = step1_choicetype.vol_name.value;
 				vo.vol_email.value = step1_choicetype.email1.value + "@" + step1_choicetype.email2.value;
 				vo.submit();
 			}else if(type == 'de'){
+				if(!step1_choicetype.dem_ins_name.value){
+					alert("기관명을 입력해주세요.");
+					step1_choicetype.dem_ins_name.focus();
+					return false;
+				}
+				if(!step1_choicetype.demander_register1.value){
+					alert("사업자등록번호를 모두 입력해주세요.");
+					step1_choicetype.demander_register1.focus();
+					return false;
+				}
+				if(!step1_choicetype.demander_register2.value){
+					alert("사업자등록번호를 모두 입력해주세요.");
+					step1_choicetype.demander_register2.focus();
+					return false;
+				}
+				if(!step1_choicetype.demander_register3.value){
+					alert("사업자등록번호를 모두 입력해주세요.");
+					step1_choicetype.demander_register3.focus();
+					return false;
+				}
 				de.dem_ins_name.value = step1_choicetype.dem_ins_name.value;
 				de.dem_resnum.value = step1_choicetype.demander_register1.value + 
 									  step1_choicetype.demander_register2.value +
