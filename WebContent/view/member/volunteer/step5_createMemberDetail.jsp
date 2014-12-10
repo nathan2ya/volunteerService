@@ -21,6 +21,10 @@
 			Selected2();
 			document.getElementById("hope_sev1_1").innerHTML = hopeSevHtml1_1;
 			Selected_1();
+			document.getElementById("hope_sev2_1").innerHTML = hopeSevHtml2_1;
+			Selected_2();
+			document.getElementById("hope_sev3_1").innerHTML = hopeSevHtml3_1;
+			Selected_3();
 		}; 
 		
 		//µµ/½Ã 
@@ -170,10 +174,50 @@
 		}
 		
 		//Èñ¸ÁºÐ¾ß2
+		var hopeSevHtml2_1 = ""; 
+		hopeSevHtml2_1 += '<select id="hopeSevSelect2_1" name="hopeSevSelect2_1" onChange="Selected_2();">'; 
+		for(var i = 0;i < arr1_hope.length ; i++){ 
+		   hopeSevHtml2_1 += '<option value="'+arr1_hope[i]+'">'+arr1_hope[i]+'</option>'; 
+		} 
+		hopeSevHtml2_1 += '</select>'; 
 		
+		function Selected_2(type){
+		   var str = document.getElementById("hopeSevSelect2_1").value;
+		   var hopeSevHtml2_2 = ""; 
+		   hopeSevHtml2_2 += '<select id="hopeSevSelect2_2" name="hopeSevSelect2_2">'; 
+		   for(var i = 0;i < arr2_hope.length ; i++){ 
+		      if(arr2_hope[i][0] == str ){ 
+		         for(var j = 1 ; j < arr2_hope[i].length; j++){ 
+		            hopeSevHtml2_2 += '<option value="'+arr2_hope[i][j]+'">'+arr2_hope[i][j]+'</option>'; 
+		         } 
+		      } 
+		   } 
+		   hopeSevHtml2_2 += '</select>'; 
+		   document.getElementById("hope_sev2_2").innerHTML = hopeSevHtml2_2; 
+		}
 		
 		//Èñ¸ÁºÐ¾ß3
+		var hopeSevHtml3_1 = ""; 
+		hopeSevHtml3_1 += '<select id="hopeSevSelect3_1" name="hopeSevSelect3_1" onChange="Selected_3();">'; 
+		for(var i = 0;i < arr1_hope.length ; i++){ 
+		   hopeSevHtml3_1 += '<option value="'+arr1_hope[i]+'">'+arr1_hope[i]+'</option>'; 
+		} 
+		hopeSevHtml3_1 += '</select>'; 
 		
+		function Selected_3(type){
+		   var str = document.getElementById("hopeSevSelect3_1").value;
+		   var hopeSevHtml3_2 = ""; 
+		   hopeSevHtml3_2 += '<select id="hopeSevSelect3_2" name="hopeSevSelect3_2">'; 
+		   for(var i = 0;i < arr2_hope.length ; i++){ 
+		      if(arr2_hope[i][0] == str ){ 
+		         for(var j = 1 ; j < arr2_hope[i].length; j++){ 
+		            hopeSevHtml3_2 += '<option value="'+arr2_hope[i][j]+'">'+arr2_hope[i][j]+'</option>'; 
+		         } 
+		      } 
+		   } 
+		   hopeSevHtml3_2 += '</select>'; 
+		   document.getElementById("hope_sev3_2").innerHTML = hopeSevHtml3_2; 
+		}
 		
 		//submit
 		function goCreateDetail(){
