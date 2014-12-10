@@ -19,14 +19,16 @@
 			Selected1();
 			document.getElementById("hope_plc2_1").innerHTML = hopeHtml2_1;
 			Selected2();
+			document.getElementById("hope_sev1_1").innerHTML = hopeSevHtml1_1;
+			Selected_1();
 		}; 
 		
-		// 도/시 
+		//도/시 
 		var arr1_city = new Array(
 				"도/시 선택","서울특별시","부산광역시","대구광역시","인천광역시","광주광역시","대전광역시","울산광역시","세종특별자치시",
 				"경기도","강원도","충청북도","충청남도","전라북도","전라남도","경상북도","경상남도","제주특별자치도");
 		
-		// 구/군
+		//구/군
 		var arr2_gun = new Array( 
 			// arr1_city 배열값, 선택된 값에 보여줄 값들 
 			new Array("도/시 선택","구/군 선택")
@@ -49,8 +51,32 @@
 			,new Array("경상북도","전체","포항시","경주시","김천시","안동시","구미시","영주시","영천시","상주시","문경시","경산시","군위군","의성군","청송군","영양군","영덕군","청도군","고령군","성추군","칠곡군","예천군","봉화군","울진군","울릉군") 
 			,new Array("경상남도","전체","진주시","통영시","사천시","김해시","밀양시","거제시","양산시","의령군","함안군","창녕군","고성군","남해군","하동군","산청군","함양군","거창군","합천군","창원시")
 			,new Array("제주특별자치도","전체","제주시","서귀포시")
-		); 
-
+		);
+		
+		//희망분야 1차
+		var arr1_hope = new Array(
+				"선택하세요","생활편의지원","주거환경","상담","교육","보건의료","농어촌 봉사","문화체육","환경보호","행정지원","안전예방","공익.인권","재해.재난","국제협력.해외봉사","멘토링","기타");
+		
+		//희망분야 2차
+		var arr2_hope = new Array(
+				new Array("선택하세요","선택하세요")
+				,new Array("생활편의지원","활동보조","이동지원","청결지도","급식지원","식사.반찬지원","기타")
+				,new Array("주거환경","주거개선","마을공동체활동","기타")
+				,new Array("상담","말벗상담","전문상담","기타")
+				,new Array("교육","방과후 교육","학습지도 교육","특수교육","평생교육","전문교육","문예지도","미술지도","서예지도","음악지도","악기지도","국악지도","기타")
+				,new Array("보건의료","간호.간병","의료지원","헌혈","기타")
+				,new Array("농어촌 봉사","일손지원","기타")
+				,new Array("문화체육","행사보조","공영활동","캠페인","관광안내","사진촬영","기타")
+				,new Array("환경보호","환경정화","환경감시","기타")
+				,new Array("행정지원","사무지원","업무지원","기타")
+				,new Array("안전예방","지역안전","교통안전","어린인 안전","청소년 안전","취약계층 안전","기타")
+				,new Array("공익.인권","인권개선","공익보호","기타")
+				,new Array("재해.재난","피해복구","긴급구조","기타")
+				,new Array("국제협력.해외봉사","해외봉사","국제행사단체지원","통.번역","기타")
+				,new Array("멘토링","멘토링","학습","진로적성","취업","창업","기타")
+				,new Array("기타","기타")
+		);
+	
 		//봉사희망지역(소속센터)
 		var hopeHtml_1 = ""; 
 		hopeHtml_1 += '<select id="hopeSelect_1" name="hopeSelect_1" onChange="Selected();">'; 
@@ -119,6 +145,35 @@
 		   hopeHtml2_2 += '</select>'; 
 		   document.getElementById("hope_plc2_2").innerHTML = hopeHtml2_2; 
 		}
+		
+		//희망분야1
+		var hopeSevHtml1_1 = ""; 
+		hopeSevHtml1_1 += '<select id="hopeSevSelect1_1" name="hopeSevSelect1_1" onChange="Selected_1();">'; 
+		for(var i = 0;i < arr1_hope.length ; i++){ 
+		   hopeSevHtml1_1 += '<option value="'+arr1_hope[i]+'">'+arr1_hope[i]+'</option>'; 
+		} 
+		hopeSevHtml1_1 += '</select>'; 
+		
+		function Selected_1(type){
+		   var str = document.getElementById("hopeSevSelect1_1").value;
+		   var hopeSevHtml1_2 = ""; 
+		   hopeSevHtml1_2 += '<select id="hopeSevSelect1_2" name="hopeSevSelect1_2">'; 
+		   for(var i = 0;i < arr2_hope.length ; i++){ 
+		      if(arr2_hope[i][0] == str ){ 
+		         for(var j = 1 ; j < arr2_hope[i].length; j++){ 
+		            hopeSevHtml1_2 += '<option value="'+arr2_hope[i][j]+'">'+arr2_hope[i][j]+'</option>'; 
+		         } 
+		      } 
+		   } 
+		   hopeSevHtml1_2 += '</select>'; 
+		   document.getElementById("hope_sev1_2").innerHTML = hopeSevHtml1_2; 
+		}
+		
+		//희망분야2
+		
+		
+		//희망분야3
+		
 		
 		//submit
 		function goCreateDetail(){
@@ -274,21 +329,27 @@
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">희망분야1</td>
 				<td width="500" height="8" align="left">
-					<!-- TODO vol_hope_sev_1	 -->
+					<span id="hope_sev1_1"></span>
+					<span id="hope_sev1_2"></span>
+					<input type="hidden" name="vol_hope_sev_1" id="vol_hope_sev_1" value=""/>
 				</td>
 			</tr>
 			
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">희망분야2</td>
 				<td width="500" height="8" align="left">
-					<!-- TODO vol_hope_sev_2	 -->
+					<span id="hope_sev2_1"></span>
+					<span id="hope_sev2_2"></span>
+					<input type="hidden" name="vol_hope_sev_2" id="vol_hope_sev_2" value=""/>
 				</td>
 			</tr>
 			
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">희망분야3</td>
 				<td width="500" height="8" align="left">
-					<!-- TODO vol_hope_sev_3 -->
+					<span id="hope_sev3_1"></span>
+					<span id="hope_sev3_2"></span>
+					<input type="hidden" name="vol_hope_sev_3" id="vol_hope_sev_3" value=""/>
 				</td>
 			</tr>
 			
