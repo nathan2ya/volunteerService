@@ -99,6 +99,7 @@
 			
 			//이메일 형식으로 변경
 			document.getElementById("vol_email").value = document.getElementById("email1").value + "@" + document.getElementById("email2").value;
+			
 			step4_voCreateMemberForm.submit();
 		}
 		

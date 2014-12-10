@@ -82,7 +82,10 @@
 					step1_choicetype.demander_register3.focus();
 					return false;
 				}
+				//기관명
 				de.dem_ins_name.value = step1_choicetype.dem_ins_name.value;
+				
+				//사업자등록번호
 				de.dem_resnum.value = step1_choicetype.demander_register1.value + 
 									  step1_choicetype.demander_register2.value +
 									  step1_choicetype.demander_register3.value;

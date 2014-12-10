@@ -9,17 +9,6 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
 	<script type="text/javascript">
 		
-		//submit
-		function goCreateBasic(type){
-			//선택사항입력 or 저장
-			document.getElementById("confrimType").value = type;
-			
-			//우편번호 형식으로 변경 = 앞자리-뒷자리
-			document.getElementById("dem_zipcode").value = document.getElementById("post1").value + "-" +  document.getElementById("post2").value;
-			step4_deCreateMemberForm.submit();
-		}
-		
-		//DAUM 주소 API
 		function openDaumPostcode() {
 	    	new daum.Postcode({
 	        	oncomplete: function(data) {
@@ -32,6 +21,149 @@
 	            }
 	        }).open();
 	    }
+		
+		//이메일 select box
+		function selectEmail(form){
+	        if(form.email_select.value == '1'){
+	        	form.email2.readOnly = false;
+	        	form.email2.value = '';
+	        	form.email2.focus();
+	        }else{
+	        	form.email2.readOnly = true;
+	        	form.email2.value = form.email_select.value;
+        	}
+		}
+		
+		//비밀번호 일치여부 확인
+		function checkPw() {
+			if (step4_deCreateMemberForm.dem_pw.value != step4_deCreateMemberForm.dem_pw_check.value) {
+				alert("비밀번호가 일치하지 않습니다.");
+				step4_deCreateMemberForm.dem_pw.value = "";
+				step4_deCreateMemberForm.dem_pw_check.value = "";
+				step4_deCreateMemberForm.dem_pw.focus();
+				return false;
+			}
+		}
+		
+		//submit
+		function goCreateBasic(type){
+			if(!step4_deCreateMemberForm.dem_dep.value){
+				alert("부서를 입력해주세요.");
+				step4_deCreateMemberForm.dem_dep.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_level.value){
+				alert("직책을 입력해주세요.");
+				step4_deCreateMemberForm.dem_level.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_birthday_year.value){
+				alert("창립일을 입력해주세요.");
+				step4_deCreateMemberForm.dem_birthday_year.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_birthday_month.value){
+				alert("창립일을 입력해주세요.");
+				step4_deCreateMemberForm.dem_birthday_month.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_birthday_day.value){
+				alert("창립일을 입력해주세요.");
+				step4_deCreateMemberForm.dem_birthday_day.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.demander_id.value){
+				alert("아이디를 입력해주세요.");
+				step4_deCreateMemberForm.demander_id.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_pw.value){
+				alert("비밀번호를 입력해주세요.");
+				step4_deCreateMemberForm.dem_pw.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_pw_check.value){
+				alert("비밀번호 확인을 위해 한번 더 입력해주세요.");
+				step4_deCreateMemberForm.dem_pw_check.focus();
+				return false;
+			}
+			if(step4_deCreateMemberForm.dem_pw_ask.value == "0"){
+				alert("비밀번호 힌트 질문을 선택해주세요.");
+				step4_deCreateMemberForm.dem_pw_ask.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_pw_ans.value){
+				alert("비밀번호 힌트 답변을 입력해주세요.");
+				step4_deCreateMemberForm.dem_pw_ans.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_ins_name.value){
+				alert("근무기관명을 입력해주세요.");
+				step4_deCreateMemberForm.dem_ins_name.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_ins_name.value){
+				alert("근무기관명을 입력해주세요.");
+				step4_deCreateMemberForm.dem_ins_name.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_rep_name.value){
+				alert("대표자명을 입력해주세요.");
+				step4_deCreateMemberForm.dem_rep_name.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.demander_register1.value){
+				alert("사업자등록번호를 모두 입력해주세요.");
+				step4_deCreateMemberForm.demander_register1.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.demander_register2.value){
+				alert("사업자등록번호를 모두 입력해주세요.");
+				step4_deCreateMemberForm.demander_register2.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.demander_register3.value){
+				alert("사업자등록번호를 모두 입력해주세요.");
+				step4_deCreateMemberForm.demander_register3.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.post1.value && !step4_deCreateMemberForm.post2.value){
+				alert("우편번호 찾기를 통해 주소를 입력해주세요.");
+				openDaumPostcode();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_addr_bsc.value){
+				alert("우편번호 찾기를 통해 회사주소를 입력해주세요.");
+				step4_deCreateMemberForm.dem_addr_bsc.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.dem_addr_dtl.value){
+				alert("나머지주소를 입력해주세요.");
+				step4_deCreateMemberForm.dem_addr_dtl.focus();
+				return false;
+			}
+			if(!step4_deCreateMemberForm.email1.value || !step4_deCreateMemberForm.email2.value){
+				alert("이메일을 입력해주세요.");
+				step4_deCreateMemberForm.email1.focus();
+				return false;
+			}
+			
+			//선택사항입력 or 저장
+			document.getElementById("confrimType").value = type;
+			
+			//우편번호 형식으로 변경 = 앞자리-뒷자리
+			document.getElementById("dem_zipcode").value = document.getElementById("post1").value + "-" +  document.getElementById("post2").value;
+			
+			//사업자등록번호
+			document.getElementById("dem_resnum").value = document.getElementById("demander_register1").value +
+														  document.getElementById("demander_register2").value +
+														  document.getElementById("demander_register3").value;
+			
+			//이메일 형식으로 변경
+			document.getElementById("dem_email").value = document.getElementById("email1").value + "@" + document.getElementById("email2").value;
+			
+			step4_deCreateMemberForm.submit();
+		}
 		
 	</script>
 </head>
@@ -84,6 +216,7 @@
 					<input type="text" name="dem_birthday_month" id="dem_birthday_month" size="4" maxlength="2"/> 월
 					<input type="text" name="dem_birthday_day" id="dem_birthday_day" size="4" maxlength="2"/> 일
 					<font color="gray" size="2"> ※ 본인 확인을 위한 자료로 이용됩니다.</font>
+					<input type="hidden" name="dem_birthday" id="dem_birthday" value=""/>
 				</td>
 			</tr>
 			
@@ -104,7 +237,7 @@
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호 확인</td>
 				<td width="550" height="8" align="left">
-					<input type="password" name="dem_pw_check" id="dem_pw_check" size="30" maxlength="20" />
+					<input type="password" name="dem_pw_check" id="dem_pw_check" size="30" maxlength="20" onblur="checkPw();" />
 				</td>
 			</tr>
 			
@@ -112,6 +245,7 @@
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호 힌트</td>
 				<td width="550" height="8" align="left">
 					<select name = "dem_pw_ask">
+						<option value = "0">-질문선택-</option>
 						<option value = "1">질문1</option>
 						<option value = "2">질문2</option>
 						<option value = "3">질문3</option>
@@ -146,7 +280,10 @@
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">사업자등록번호</td>
 				<td width="550" height="8" align="left">
-					<input type="text" name="dem_resnum" id="dem_resnum" size="20" maxlength="10" />
+					<input type="text" name="demander_register1" id="demander_register1" size="6" maxlength="3" /> - 
+					<input type="text" name="demander_register2" id="demander_register2" size="6" maxlength="2" /> - 
+					<input type="text" name="demander_register3" id="demander_register3" size="6" maxlength="5" />
+					<input type="hidden" name="dem_resnum" id="dem_resnum"/>
 				</td>
 			</tr>
 			
@@ -176,7 +313,27 @@
 			<tr>	
 				<td width="150" height="16" align="right" bgcolor="#D5D5D5">담당자이메일</td>
 				<td width="550" height="16" align="left">
-					<input type="text" name="dem_email" id="dem_email" size="45" maxlength="30"/>
+					<input type="text" name="email1" id="email1" class="box" size="15"> @ 
+					<input type="text" name="email2" id="email2" class="box" size="20">
+					<select name="email_select" id="email_select" class="box" onChange="selectEmail(this.form);">
+					    <option value="" selected>선택하세요</option>
+					    <option value="empal.com">empal.com</option>
+					    <option value="dreamwiz.com">dreamwiz.com</option>
+					    <option value="naver.com">naver.com</option>
+					    <option value="hotmail.com">hotmail.com</option>
+					    <option value="chollian.net">chollian.net</option>
+					    <option value="freechal.com">freechal.com</option>
+					    <option value="hanafos.com">hanafos.com</option>
+					    <option value="kebi.com">kebi.com</option>
+					    <option value="korea.com">korea.com</option>
+					    <option value="lycos.co.kr">lycos.co.kr</option>
+					    <option value="netian.com">netian.com</option>
+					    <option value="netsgo.com">netsgo.com</option>
+					    <option value="unitel.co.kr">unitel.co.kr</option>
+					    <option value="yahoo.co.kr">yahoo.co.kr</option>
+					    <option value="1">직접입력</option>
+					</select>
+					<input type="hidden" name="dem_email" id="dem_email"/>
 				</td>
 			</tr>
 			
