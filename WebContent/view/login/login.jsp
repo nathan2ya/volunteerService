@@ -8,8 +8,18 @@
 
 	<title>로그인</title>
 	
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script language=JavaScript>
 		
+		$(document).ready(function(){
+			var type = "${type}";
+			if(type == 1){
+				alert("아이디 또는 비밀번호가 틀렸습니다.");
+			}
+			document.loginForm.user_id.focus();
+		});
+	
 		//공백제거
 		function toPass(){
 			var input = document.loginForm.user_id.value;//사용자가 입력한 값

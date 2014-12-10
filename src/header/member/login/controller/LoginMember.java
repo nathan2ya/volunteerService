@@ -49,6 +49,20 @@ public class LoginMember {
 	//회원로그인폼
 	@RequestMapping("/loginForm.do")
 	public String loginForm(HttpServletRequest request){
+		String type = "";
+		String user_id = "";
+		
+		//0:최초진입, 1:아이디 또는 비밀번호 불일치
+		if(request.getParameter("type") == null){
+			type = "0";
+			user_id = "0";
+		}else{
+			type = request.getParameter("type");
+			user_id = request.getParameter("user_id");
+		}
+		
+		request.setAttribute("type", type);
+		request.setAttribute("user_id", user_id);
 		return "/view/login/login.jsp";
 	}
 	
@@ -84,7 +98,7 @@ public class LoginMember {
 			}
 			url = "redirect:/main.do";
 		}else{
-			url = "redirect:/loginForm.do";
+			url = "redirect:/loginForm.do?type=1&user_id="+user_id;
 		}
 		
 		return url;
