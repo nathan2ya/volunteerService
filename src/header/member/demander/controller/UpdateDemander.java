@@ -40,8 +40,8 @@ public class UpdateDemander {
 	}
 	//.DB커넥트 생성자 버전 끝
 	
-	//회원수정.수요처
-	@RequestMapping("/deMyInformation.do")
+	//회원수정(기본).수요처
+	@RequestMapping("/deMyInformation_bsc.do")
 	public String voMyInformation(HttpServletRequest request) throws Exception{
 		return "/view/member/demander/myPage/myInformation_bsc.jsp";
 	}

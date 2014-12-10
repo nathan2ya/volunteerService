@@ -1,10 +1,15 @@
 package header.member.volunteer.controller;
 
+import header.member.volunteer.dto.VolunteerDTO;
+
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Controller;
@@ -26,6 +31,7 @@ import common.lib.VolunteerCode;
 public class UpdateVolunteer {
 	
 	private String url; // return URL
+	private VolunteerDTO volunteerDTO = new VolunteerDTO();
 	
 	//DB커넥트 인스턴스 변수
 	SqlMapClientTemplate ibatis = null;
@@ -40,9 +46,13 @@ public class UpdateVolunteer {
 	}
 	//.DB커넥트 생성자 버전 끝
 	
-	//회원수정.자원봉사자
-	@RequestMapping("/voMyInformation.do")
-	public String voMyInformation(HttpServletRequest request) throws Exception{
+	//회원수정(기본).자원봉사자
+	@RequestMapping("/voMyInformation_bsc.do")
+	public String voMyInformation(HttpServletRequest request, HttpSession session) throws Exception{
+		
+		String session_volunteerId = (String) session.getAttribute("session_volunteerId");
+		volunteerDTO = (VolunteerDTO)sqlMapper.queryForObject("Volunteer.selectVolunteerOne", session_volunteerId);
+		request.setAttribute("volunteerDTO", volunteerDTO);
 		return "/view/member/volunteer/myPage/myInformation_bsc.jsp";
 	}
 	
