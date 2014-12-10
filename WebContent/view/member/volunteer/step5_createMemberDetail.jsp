@@ -266,6 +266,21 @@
 			var hope_cen2_2 = $("#hopeSelect2_2 option").index($("#hopeSelect2_2 option:selected"));
 			document.getElementById("vol_hope_plc_2").value = hope_cen2_1+","+hope_cen2_2;
 			
+			//Èñ¸ÁºÐ¾ß1
+			var hope_sev1_1 = $("#hopeSevSelect1_1 option").index($("#hopeSevSelect1_1 option:selected"));
+			var hope_sev1_2 = $("#hopeSevSelect1_2 option").index($("#hopeSevSelect1_2 option:selected"));
+			document.getElementById("vol_hope_sev_1").value = hope_sev1_1+","+hope_sev1_2;
+			
+			//Èñ¸ÁºÐ¾ß2
+			var hope_sev2_1 = $("#hopeSevSelect2_1 option").index($("#hopeSevSelect2_1 option:selected"));
+			var hope_sev2_2 = $("#hopeSevSelect2_2 option").index($("#hopeSevSelect2_2 option:selected"));
+			document.getElementById("vol_hope_sev_2").value = hope_sev2_1+","+hope_sev2_2;
+			
+			//Èñ¸ÁºÐ¾ß3
+			var hope_sev3_1 = $("#hopeSevSelect3_1 option").index($("#hopeSevSelect3_1 option:selected"));
+			var hope_sev3_2 = $("#hopeSevSelect3_2 option").index($("#hopeSevSelect3_2 option:selected"));
+			document.getElementById("vol_hope_sev_3").value = hope_sev3_1+","+hope_sev3_2;
+			
 			step5_voCreateMemberForm.submit();
 		}
 		
