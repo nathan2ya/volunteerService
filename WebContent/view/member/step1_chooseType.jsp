@@ -44,6 +44,29 @@
         	}
 		}
 		
+		//숫자입력제한
+		function checkNum1(){
+			if(event.keyCode!=13 && event.keyCode!=9 && !((event.keyCode >= 48 && event.keyCode<=57) || (event.keyCode >= 96 && event.keyCode <= 105) || event.keyCode==8 )){
+				alert("사업자등록번호는 숫자만 입력할 수 있습니다.");
+				step1_choicetype.demander_register1.value = "";
+				step1_choicetype.demander_register1.focus();
+			} 
+		}
+		function checkNum2(){
+			if(event.keyCode!=13 && event.keyCode!=9 && !((event.keyCode >= 48 && event.keyCode<=57) || (event.keyCode >= 96 && event.keyCode <= 105) || event.keyCode==8 )){
+				alert("사업자등록번호는 숫자만 입력할 수 있습니다.");
+				step1_choicetype.demander_register2.value = "";
+				step1_choicetype.demander_register2.focus();
+			} 
+		}
+		function checkNum3(){
+			if(event.keyCode!=13 && event.keyCode!=9 && !((event.keyCode >= 48 && event.keyCode<=57) || (event.keyCode >= 96 && event.keyCode <= 105) || event.keyCode==8 )){
+				alert("사업자등록번호는 숫자만 입력할 수 있습니다.");
+				step1_choicetype.demander_register3.value = "";
+				step1_choicetype.demander_register3.focus();
+			} 
+		}
+		
 		//submit
 		function cofirm(type){
 			
@@ -184,9 +207,9 @@
 									<td align="right" bgcolor="#fafcfd" height="20">* 사업자등록번호</td>
 									<td bgcolor="#ffffff" colspan="3">
 										<font color="#555555" size="2">
-											<input type="text" name="demander_register1" size="6" maxlength="3" /> - 
-											<input type="text" name="demander_register2" size="6" maxlength="2" /> - 
-											<input type="text" name="demander_register3" size="6" maxlength="5" />
+											<input type="text" name="demander_register1" size="6" maxlength="3" onkeydown="checkNum1();"/> - 
+											<input type="text" name="demander_register2" size="6" maxlength="2" onkeydown="checkNum2();"/> - 
+											<input type="text" name="demander_register3" size="6" maxlength="5" onkeydown="checkNum3();"/>
 										</font>
 									</td>
 								</tr>
