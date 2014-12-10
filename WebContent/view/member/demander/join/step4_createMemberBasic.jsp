@@ -246,12 +246,16 @@
 				<td width="550" height="8" align="left">
 					<select name = "dem_pw_ask">
 						<option value = "0">-질문선택-</option>
-						<option value = "1">질문1</option>
-						<option value = "2">질문2</option>
-						<option value = "3">질문3</option>
-						<option value = "4">질문4</option>
-						<option value = "5">질문5</option>
-						<option value = "6">질문6</option>
+						<option value = "1">아버지 성함은?</option>
+						<option value = "2">어머니 성함은?</option>
+						<option value = "3">태어난 곳은?</option>
+						<option value = "4">어릴적 별명은?</option>
+						<option value = "5">좋아하는 색깔은?</option>
+						<option value = "6">결혼기념일은?</option>
+						<option value = "7">애완동물 이름은?</option>
+						<option value = "8">가보고싶은 곳은?</option>
+						<option value = "9">가장소중한 물건은?</option>
+						<option value = "10">인상깊게 읽은 책은?</option>
 					</select>
 				</td>
 			</tr>
@@ -319,6 +323,7 @@
 					    <option value="" selected>선택하세요</option>
 					    <option value="empal.com">empal.com</option>
 					    <option value="dreamwiz.com">dreamwiz.com</option>
+					    <option value="gmail.com">gmail.com</option>
 					    <option value="naver.com">naver.com</option>
 					    <option value="hotmail.com">hotmail.com</option>
 					    <option value="chollian.net">chollian.net</option>

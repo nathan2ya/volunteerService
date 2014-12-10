@@ -164,6 +164,7 @@
 											    <option value="" selected>선택하세요</option>
 											    <option value="empal.com">empal.com</option>
 											    <option value="dreamwiz.com">dreamwiz.com</option>
+											    <option value="gmail.com">gmail.com</option>
 											    <option value="naver.com">naver.com</option>
 											    <option value="hotmail.com">hotmail.com</option>
 											    <option value="chollian.net">chollian.net</option>
