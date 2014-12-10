@@ -9,7 +9,19 @@
 	<title>로그인</title>
 	
 	<script language=JavaScript>
-	
+		
+		//공백제거
+		function toPass(){
+			var input = document.loginForm.user_id.value;//사용자가 입력한 값
+			document.loginForm.user_id.value = input.replace(/^\s+|\s+$/g,""); //앞뒤 공백을 제거함
+		}
+		
+		//대문자를 소문자로 변경
+		function toPass1(){ 
+			var input = document.loginForm.user_id.value;//사용자가 입력한 값
+			document.loginForm.user_id.value = input.toLowerCase(); //대문자를 소문자로 변경
+		}
+		
 		//로그인
 		function goLogin(){
 			loginForm.submit();
@@ -46,7 +58,7 @@
 				<td align=right width=149 bgcolor=#fafcfd height=20><font color=#555555>아이디</font></td>
 					<td bgcolor=#ffffff>
 						<font color=#555555 size=2>
-							<input type="text" name="user_id" id="user_id" /> 
+							<input type="text" name="user_id" id="user_id" style="width:180px; IME-MODE:disabled;" onkeypress="toPass(); toPass1();" onblur="toPass(); toPass1();" /> 
 						</font>
 					</td>
 				</tr>
