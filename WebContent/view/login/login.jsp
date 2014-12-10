@@ -73,7 +73,8 @@
 	
 	<!-- 로그인상태 -->
 	<c:if test="${sessionScope.session_volunteerId != null || sessionScope.session_demanderId != null}">
-		
+		현재위치:로그인폼<br/>
+		현재 로그인 되어있습니다. 로그아웃 하시겠습니까?
 		<input type="button" name="logout" value="로그아웃" onclick="goLogout()"/>
 		
 	</c:if>
