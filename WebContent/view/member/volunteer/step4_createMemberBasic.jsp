@@ -9,29 +9,98 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
 	<script type="text/javascript">
 		
+		function openDaumPostcode() {
+	    	new daum.Postcode({
+	        	oncomplete: function(data) {
+	                document.getElementById("post1").value = data.postcode1;
+	                document.getElementById("post2").value = data.postcode2;
+	                document.getElementById("vol_addr_bsc").value = data.address;
+	                document.getElementById("vol_addr_dtl").focus();
+	            }
+	        }).open();
+	    }
+		
+		//이메일 select box
+		function selectEmail(form){
+	        if(form.email_select.value == '1'){
+	        	form.email2.readOnly = false;
+	        	form.email2.value = '';
+	        	form.email2.focus();
+	        }else{
+	        	form.email2.readOnly = true;
+	        	form.email2.value = form.email_select.value;
+        	}
+		}
+		
+		//비밀번호 일치여부 확인
+		function checkPw() {
+			if (step4_voCreateMemberForm.vol_pw.value != step4_voCreateMemberForm.vol_pw_check.value) {
+				alert("비밀번호가 일치하지 않습니다.");
+				step4_voCreateMemberForm.vol_pw.value = "";
+				step4_voCreateMemberForm.vol_pw_check.value = "";
+				step4_voCreateMemberForm.vol_pw.focus();
+				return false;
+			}
+		}
+		
 		//submit
 		function goCreateBasic(type){
+			if(!step4_voCreateMemberForm.volunteer_id.value){
+				alert("아이디를 입력해주세요.");
+				step4_voCreateMemberForm.volunteer_id.focus();
+				return false;
+			}
+			if(!step4_voCreateMemberForm.vol_pw.value){
+				alert("비밀번호를 입력해주세요.");
+				step4_voCreateMemberForm.vol_pw.focus();
+				return false;
+			}
+			if(!step4_voCreateMemberForm.vol_pw_check.value){
+				alert("비밀번호 확인을 위해 한번 더 입력해주세요.");
+				step4_voCreateMemberForm.vol_pw_check.focus();
+				return false;
+			}
+			if(step4_voCreateMemberForm.vol_pw_ask.value == "0"){
+				alert("비밀번호 힌트 질문을 선택해주세요.");
+				step4_voCreateMemberForm.vol_pw_ask.focus();
+				return false;
+			}
+			if(!step4_voCreateMemberForm.vol_pw_ans.value){
+				alert("비밀번호 힌트 답변을 입력해주세요.");
+				step4_voCreateMemberForm.vol_pw_ans.focus();
+				return false;
+			}
+			if(!step4_voCreateMemberForm.post1.value && !step4_voCreateMemberForm.post2.value){
+				alert("우편번호 찾기를 통해 주소를 입력해주세요.");
+				openDaumPostcode();
+				return false;
+			}
+			if(!step4_voCreateMemberForm.vol_addr_bsc.value){
+				alert("우편번호 찾기를 통해 주소를 입력해주세요.");
+				step4_voCreateMemberForm.vol_addr_bsc.focus();
+				return false;
+			}
+			if(!step4_voCreateMemberForm.vol_addr_dtl.value){
+				alert("상세주소를 입력해주세요.");
+				step4_voCreateMemberForm.vol_addr_dtl.focus();
+				return false;
+			}
+			if(!step4_voCreateMemberForm.email1.value || !step4_voCreateMemberForm.email2.value){
+				alert("이메일을 입력해주세요.");
+				step4_voCreateMemberForm.email1.focus();
+				return false;
+			}
+			
 			//선택사항입력 or 저장
 			document.getElementById("confrimType").value = type;
 			
 			//우편번호 형식으로 변경 = 앞자리-뒷자리
 			document.getElementById("vol_zipcode").value = document.getElementById("post1").value + "-" +  document.getElementById("post2").value;
+			
+			//이메일 형식으로 변경
+			document.getElementById("vol_email").value = document.getElementById("email1").value + "@" + document.getElementById("email2").value;
 			step4_voCreateMemberForm.submit();
 		}
-		
-		//DAUM 주소 API
-		function openDaumPostcode() {
-	    	new daum.Postcode({
-	        	oncomplete: function(data) {
-	                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분. 우편번호와 주소 정보를 해당 필드에 넣고, 커서를 상세주소 필드로 이동한다.
-	                document.getElementById("post1").value = data.postcode1;
-	                document.getElementById("post2").value = data.postcode2;
-	                document.getElementById("vol_addr_bsc").value = data.address;
-	                
-	                document.getElementById("vol_addr_dtl").focus();
-	            }
-	        }).open();
-	    }
 		
 	</script>
 </head>
@@ -89,20 +158,23 @@
 			<tr>
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호 확인</td>
 				<td width="550" height="8" align="left">
-					<input type="password" name="vol_pw_check" id="vol_pw_check" size="30" maxlength="20" />
+					<input type="password" name="vol_pw_check" id="vol_pw_check" size="30" maxlength="20" onblur="checkPw();" />
 				</td>
 			</tr>
 			
 			<tr>
-				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호 힌트</td>
+				<td width="150" height="8" align="right" bgcolor="#D5D5D5">비밀번호 힌트 질문</td>
 				<td width="550" height="8" align="left">
-					<select name = vol_pw_ask>
+					<select name = "vol_pw_ask">
+						<option value = "0">-질문선택-</option>
 						<option value = "1">질문1</option>
 						<option value = "2">질문2</option>
 						<option value = "3">질문3</option>
 						<option value = "4">질문4</option>
 						<option value = "5">질문5</option>
 						<option value = "6">질문6</option>
+						<option value = "6">질문7</option>
+						<option value = "6">질문8</option>
 					</select>
 				</td>
 			</tr>
@@ -125,7 +197,7 @@
 			<tr>	
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">우편번호</td>
 				<td width="550" height="8" align="left">
-					<input type="text" id="post1" name="post1" size="8" class="d_form mini"> - <input type="text" id="post2" name="post2" size="8" class="d_form mini">
+					<input type="text" id="post1" name="post1" size="8" readonly="readonly" class="d_form mini"> - <input type="text" id="post2" name="post2" size="8" readonly="readonly" class="d_form mini">
 					<input type="hidden" name="vol_zipcode" id="vol_zipcode" value=""/>
 				    <input type="button" onclick="openDaumPostcode()" value="우편번호 찾기" class="d_btn">
 				</td>
@@ -134,7 +206,7 @@
 			<tr>	
 				<td width="150" height="8" align="right" bgcolor="#D5D5D5">주소</td>
 				<td width="550" height="8" align="left">
-					<input type="text" id="vol_addr_bsc" name="vol_addr_bsc" class="d_form" size="45" placeholder="주소">
+					<input type="text" id="vol_addr_bsc" name="vol_addr_bsc" readonly="readonly" class="d_form" size="45" placeholder="주소">
 				</td>
 			</tr>
 			
@@ -148,7 +220,27 @@
 			<tr>	
 				<td width="150" height="16" align="right" bgcolor="#D5D5D5">이메일</td>
 				<td width="550" height="16" align="left">
-					<input type="text" name="vol_email" id="vol_email" size="45" maxlength="30"/>
+					<input type="text" name="email1" id="email1" class="box" size="15"> @ 
+					<input type="text" name="email2" id="email2" class="box" size="20">
+					<select name="email_select" id="email_select" class="box" onChange="selectEmail(this.form);">
+					    <option value="" selected>선택하세요</option>
+					    <option value="empal.com">empal.com</option>
+					    <option value="dreamwiz.com">dreamwiz.com</option>
+					    <option value="naver.com">naver.com</option>
+					    <option value="hotmail.com">hotmail.com</option>
+					    <option value="chollian.net">chollian.net</option>
+					    <option value="freechal.com">freechal.com</option>
+					    <option value="hanafos.com">hanafos.com</option>
+					    <option value="kebi.com">kebi.com</option>
+					    <option value="korea.com">korea.com</option>
+					    <option value="lycos.co.kr">lycos.co.kr</option>
+					    <option value="netian.com">netian.com</option>
+					    <option value="netsgo.com">netsgo.com</option>
+					    <option value="unitel.co.kr">unitel.co.kr</option>
+					    <option value="yahoo.co.kr">yahoo.co.kr</option>
+					    <option value="1">직접입력</option>
+					</select>
+					<input type="hidden" name="vol_email" id="vol_email"/>
 				</td>
 			</tr>
 		
