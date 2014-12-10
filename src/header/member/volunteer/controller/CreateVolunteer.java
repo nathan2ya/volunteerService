@@ -58,7 +58,7 @@ public class CreateVolunteer {
 		if(count==1){
 			url = "redirect:/step1_chooseType.do?type=1";
 		}else{
-			url = "/view/member/volunteer/step2_stipulation.jsp";
+			url = "/view/member/volunteer/join/step2_stipulation.jsp";
 		}
 		return url;
 	}
@@ -67,14 +67,14 @@ public class CreateVolunteer {
 	//회원가입.자원봉사자 step3 - 본인인증
 	@RequestMapping("/step3_voCertification.do")
 	public String step3_voCertification() throws Exception{
-		return "/view/member/volunteer/step3_certification.jsp";
+		return "/view/member/volunteer/join/step3_certification.jsp";
 	}
 	
 	
 	//회원가입.자원봉사자 step4 - Basic 폼
 	@RequestMapping("/step4_voCreateMemberBasicForm.do")
 	public String step4_voCreateMemberForm() throws Exception{
-		return "/view/member/volunteer/step4_createMemberBasic.jsp";
+		return "/view/member/volunteer/join/step4_createMemberBasic.jsp";
 	}
 	
 	
@@ -121,7 +121,7 @@ public class CreateVolunteer {
 	@RequestMapping("/step5_voCreateMemberDetailForm.do")
 	public String step5_voCreateMemberDetailForm(HttpServletRequest request) throws Exception{
 		request.setAttribute("volunteer_id", request.getParameter("volunteer_id"));
-		return "/view/member/volunteer/step5_createMemberDetail.jsp";
+		return "/view/member/volunteer/join/step5_createMemberDetail.jsp";
 	}
 	
 	//회원가입.자원봉사자 detail - DB update

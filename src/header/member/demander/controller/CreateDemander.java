@@ -55,7 +55,7 @@ public class CreateDemander {
 		if(count==1){
 			url = "redirect:/step1_chooseType.do?type=1";
 		}else{
-			url = "/view/member/demander/step2_stipulation.jsp";
+			url = "/view/member/demander/join/step2_stipulation.jsp";
 		}
 		return url;
 	}
@@ -63,13 +63,13 @@ public class CreateDemander {
 	//회원가입.수요처 step3 - 본인인증
 	@RequestMapping("/step3_deCertification.do")
 	public String step3_deCertification() throws Exception{
-		return "/view/member/demander/step3_certification.jsp";
+		return "/view/member/demander/join/step3_certification.jsp";
 	}
 	
 	//회원가입.수요처 step4 - Basic 폼
 	@RequestMapping("/step4_deCreateMemberBasicForm.do")
 	public String step4_deCreateMemberBasicForm() throws Exception{
-		return "/view/member/demander/step4_createMemberBasic.jsp";
+		return "/view/member/demander/join/step4_createMemberBasic.jsp";
 	}
 	
 	//회원가입.수요처 Basic - DB insert
@@ -125,7 +125,7 @@ public class CreateDemander {
 	@RequestMapping("/step5_deCreateMemberDetailForm.do")
 	public String step5_deCreateMemberDetailForm(HttpServletRequest request) throws Exception{
 		request.setAttribute("demander_id", request.getParameter("demander_id"));
-		return "/view/member/demander/step5_createMemberDetail.jsp";
+		return "/view/member/demander/join/step5_createMemberDetail.jsp";
 	}
 	
 	//회원가입.수요처 detail - DB update
