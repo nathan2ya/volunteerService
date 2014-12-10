@@ -11,7 +11,7 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script language=JavaScript>
 	
-		//일반, 기관 선택
+		//회원타입 라디오버튼
 		function group_change(){
 			if(document.forms[0].group[0].checked == true){
 				volunteer.style.display = "block";
@@ -24,7 +24,7 @@
 			}
 		}
 		
-		//일반.이메일 선택
+		//이메일 select box
 		function selectEmail(form){
 	        if(form.email_select.value == '1'){
 	        	form.email2.readOnly = false;
@@ -36,7 +36,7 @@
         	}
 		}
 		
-		//일반, 기관 다음Step
+		//submit
 		function cofirm(type){
 			
 			if(type == 'vo'){
@@ -51,7 +51,6 @@
 				de.submit();
 			}
 		}
-		
 		
 		$(document).ready(function(){
 			var type = "${type}";

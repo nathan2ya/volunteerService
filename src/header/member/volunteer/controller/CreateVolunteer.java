@@ -62,7 +62,6 @@ public class CreateVolunteer {
 		}else{
 			url = "/view/member/volunteer/step2_stipulation.jsp";
 		}
-		
 		return url;
 	}
 	
