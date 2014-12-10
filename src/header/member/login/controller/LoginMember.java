@@ -96,7 +96,7 @@ public class LoginMember {
 				demanderDTO = (DemanderDTO)sqlMapper.queryForObject("Demander.selectDemanderOne", user_id);
 				session.setAttribute("session_demanderId", demanderDTO.getDemander_id()); //荐夸贸ID 技记积己
 			}
-			url = "redirect:/main.do";
+			url = "redirect:/main.do?memberType="+memberType;
 		}else{
 			url = "redirect:/loginForm.do?type=1&user_id="+user_id;
 		}

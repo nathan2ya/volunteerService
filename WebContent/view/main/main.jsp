@@ -14,8 +14,19 @@
 	}
 	
 	//로그인폼
-	function gologinForm() {
+	function goLoginForm() {
 		var url = "/volunteerService/loginForm.do";
+		location.href=url;
+	}
+	
+	//마이페이지
+	function goMyPage(memberType) {
+		var url = "";
+		if(memberType == 'vo'){
+			url = "/volunteerService/voMyInformation.do";
+		}else{
+			url = "/volunteerService/deMyInformation.do";
+		}
 		location.href=url;
 	}
 	
@@ -30,13 +41,13 @@
 	<!-- 비 로그인상태 -->
 	<c:if test="${sessionScope.session_volunteerId == null && sessionScope.session_demanderId == null}">
 		<input  type="button" name="join"  value="회원가입" onclick="goStep1_chooseType()"/>
-		<input  type="button" name="login"  value="로그인" onclick="gologinForm()"/>
+		<input  type="button" name="login"  value="로그인" onclick="goLoginForm()"/>
 	</c:if>
 	
 	<!-- 로그인상태 -->
 	<c:if test="${sessionScope.session_volunteerId != null || sessionScope.session_demanderId != null}">
-		<input  type="button" name="myPage"  value="마이페이지" onclick="aaaa()"/>
-		<input  type="button" name="logout"  value="로그아웃" onclick="gologinForm()"/>
+		<input  type="button" name="myPage"  value="마이페이지" onclick="goMyPage('${memberType}')"/>
+		<input  type="button" name="logout"  value="로그아웃" onclick="goLoginForm()"/>
 	</c:if>
 	
 </body>
