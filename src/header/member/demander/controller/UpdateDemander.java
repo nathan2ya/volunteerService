@@ -43,7 +43,7 @@ public class UpdateDemander {
 	//회원수정.수요처
 	@RequestMapping("/deMyInformation.do")
 	public String voMyInformation(HttpServletRequest request) throws Exception{
-		return "/view/member/demander/myPage/myInformation.jsp";
+		return "/view/member/demander/myPage/myInformation_bsc.jsp";
 	}
 	
 	

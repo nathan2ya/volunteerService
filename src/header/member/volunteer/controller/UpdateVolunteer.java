@@ -43,7 +43,7 @@ public class UpdateVolunteer {
 	//회원수정.자원봉사자
 	@RequestMapping("/voMyInformation.do")
 	public String voMyInformation(HttpServletRequest request) throws Exception{
-		return "/view/member/volunteer/myPage/myInformation.jsp";
+		return "/view/member/volunteer/myPage/myInformation_bsc.jsp";
 	}
 	
 	
