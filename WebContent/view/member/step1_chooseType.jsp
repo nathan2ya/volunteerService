@@ -10,6 +10,14 @@
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script language=JavaScript>
+		
+		$(document).ready(function(){
+			var type = "${type}";
+			if(type == 1){
+				alert("이미 회원가입을 한 상태입니다");
+			}
+			step1_choicetype.vol_name.focus();
+		});
 	
 		//회원타입 라디오버튼
 		function group_change(){
@@ -81,14 +89,6 @@
 				de.submit();
 			}
 		}
-		
-		$(document).ready(function(){
-			var type = "${type}";
-			if(type == 1){
-				alert("이미 회원가입을 한 상태입니다");
-			}
-			step1_choicetype.vol_name.focus();
-		});
 		
 	</script>
 	

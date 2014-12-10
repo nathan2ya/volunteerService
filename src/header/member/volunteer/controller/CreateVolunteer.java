@@ -127,9 +127,7 @@ public class CreateVolunteer {
 	//회원가입.자원봉사자 detail - DB update
 	@RequestMapping("/voCreateMemberDetail.do")
 	public String voCreateMemberDetail(HttpServletRequest request, @ModelAttribute("VolunteerDTO") VolunteerDTO dto) throws Exception{
-		//DTO set
-		dto.setVol_phone_1(request.getParameter("vol_phone_1_1")+"-"+request.getParameter("vol_phone_1_2")+"-"+request.getParameter("vol_phone_1_3"));
-		dto.setVol_phone_2(request.getParameter("vol_phone_2_1")+"-"+request.getParameter("vol_phone_2_2")+"-"+request.getParameter("vol_phone_2_3"));
+		System.out.println("폰번 "+dto.getVol_phone_2());
 		
 		//DB update
 		sqlMapper.update("Volunteer.updateVolunteerDetail", dto);

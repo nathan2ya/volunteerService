@@ -12,28 +12,14 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
 	<script type="text/javascript">
 		
-		//submit
-		function goCreateDetail(){
-			
-			//체크된 희망요일 (요일,요일)
-			var days = "";
-			if(document.getElementById("mon").checked){ days += "1"; }
-			if(document.getElementById("tue").checked){ days += "2"; }
-			if(document.getElementById("wen").checked){ days += "3"; }
-			if(document.getElementById("thu").checked){ days += "4"; }
-			if(document.getElementById("fri").checked){ days += "5"; }
-			if(document.getElementById("sat").checked){ days += "6"; }
-			if(document.getElementById("sun").checked){ days += "7"; }
-			document.getElementById("vol_hope_date").value = days.split("", days.length);
-			
-			//선택된 봉사희망지역(소속센터) (1차선택,2차선택)
-			var hope_cen_1 = $("#hope_cen_1 option").index($("#hope_cen_1 option:selected"));
-			var hope_cen_2 = $("#hope_cen_2 option").index($("#hope_cen_2 option:selected"));
-			document.getElementById("vol_hope_center_code").value = hope_cen_1+","+hope_cen_2;
-			
-			step5_voCreateMemberForm.submit();
-		}
-		
+		window.onload = function(){ 
+			document.getElementById("hope_cen_1").innerHTML = hopeHtml_1;
+			Selected();
+			document.getElementById("hope_plc1_1").innerHTML = hopeHtml1_1;
+			Selected1();
+			document.getElementById("hope_plc2_1").innerHTML = hopeHtml2_1;
+			Selected2();
+		}; 
 		
 		// 도/시 
 		var Arr1 = new Array(
@@ -64,44 +50,119 @@
 			,new Array("경상남도","전체","진주시","통영시","사천시","김해시","밀양시","거제시","양산시","의령군","함안군","창녕군","고성군","남해군","하동군","산청군","함양군","거창군","합천군","창원시")
 			,new Array("제주특별자치도","전체","제주시","서귀포시")
 		); 
-		
-		
 
-		//selecthtml1
-		var selecthtml1 = ""; 
-		selecthtml1 += '<select id="select1" name="select1" onChange="Selected();">'; 
+		//봉사희망지역(소속센터)
+		var hopeHtml_1 = ""; 
+		hopeHtml_1 += '<select id="hopeSelect_1" name="hopeSelect_1" onChange="Selected();">'; 
 		for(var i = 0;i < Arr1.length ; i++){ 
-		   selecthtml1 += '<option value="'+Arr1[i]+'">'+Arr1[i]+'</option>'; 
+		   hopeHtml_1 += '<option value="'+Arr1[i]+'">'+Arr1[i]+'</option>'; 
 		} 
-		selecthtml1 += '</select>'; 
+		hopeHtml_1 += '</select>'; 
 		
-		//Selected
-		function Selected(){ 
-		   var str = document.getElementById("select1").value; 
-		
-		   var selecthtml2 = ""; 
-		   selecthtml2 += '<select id="select2" name="select2">'; 
-		
+		function Selected(type){
+		   var str = document.getElementById("hopeSelect_1").value;
+		   var hopeHtml_2 = ""; 
+		   hopeHtml_2 += '<select id="hopeSelect_2" name="hopeSelect_2">'; 
 		   for(var i = 0;i < Arr2.length ; i++){ 
 		      if(Arr2[i][0] == str ){ 
 		         for(var j = 1 ; j < Arr2[i].length; j++){ 
-		            selecthtml2 += '<option value="'+Arr2[i][j]+'">'+Arr2[i][j]+'</option>'; 
+		            hopeHtml_2 += '<option value="'+Arr2[i][j]+'">'+Arr2[i][j]+'</option>'; 
 		         } 
 		      } 
 		   } 
-		   selecthtml2 += '</select>'; 
+		   hopeHtml_2 += '</select>'; 
+		   document.getElementById("hope_cen_2").innerHTML = hopeHtml_2; 
+		}
 		
-		   document.getElementById("hope_cen_2").innerHTML = selecthtml2; 
+		//봉사희망지역(선택1)
+		var hopeHtml1_1 = ""; 
+		hopeHtml1_1 += '<select id="hopeSelect1_1" name="hopeSelect1_1" onChange="Selected1();">'; 
+		for(var i = 0;i < Arr1.length ; i++){ 
+		   hopeHtml1_1 += '<option value="'+Arr1[i]+'">'+Arr1[i]+'</option>'; 
 		} 
+		hopeHtml1_1 += '</select>'; 
 		
+		function Selected1(type){
+		   var str = document.getElementById("hopeSelect1_1").value;
+		   var hopeHtml1_2 = ""; 
+		   hopeHtml1_2 += '<select id="hopeSelect1_2" name="hopeSelect1_2">'; 
+		   for(var i = 0;i < Arr2.length ; i++){ 
+		      if(Arr2[i][0] == str ){ 
+		         for(var j = 1 ; j < Arr2[i].length; j++){ 
+		            hopeHtml1_2 += '<option value="'+Arr2[i][j]+'">'+Arr2[i][j]+'</option>'; 
+		         } 
+		      } 
+		   } 
+		   hopeHtml1_2 += '</select>'; 
+		   document.getElementById("hope_plc1_2").innerHTML = hopeHtml1_2; 
+		}
 		
-		window.onload = function(){ 
-			document.getElementById("hope_cen_1").innerHTML = selecthtml1;
-			Selected();
+		//봉사희망지역(선택2)
+		var hopeHtml2_1 = ""; 
+		hopeHtml2_1 += '<select id="hopeSelect2_1" name="hopeSelect2_1" onChange="Selected2();">'; 
+		for(var i = 0;i < Arr1.length ; i++){ 
+		   hopeHtml2_1 += '<option value="'+Arr1[i]+'">'+Arr1[i]+'</option>'; 
 		} 
+		hopeHtml2_1 += '</select>'; 
 		
-		//여기까지
+		function Selected2(type){
+		   var str = document.getElementById("hopeSelect2_1").value;
+		   var hopeHtml2_2 = ""; 
+		   hopeHtml2_2 += '<select id="hopeSelect2_2" name="hopeSelect2_2">'; 
+		   for(var i = 0;i < Arr2.length ; i++){ 
+		      if(Arr2[i][0] == str ){ 
+		         for(var j = 1 ; j < Arr2[i].length; j++){ 
+		            hopeHtml2_2 += '<option value="'+Arr2[i][j]+'">'+Arr2[i][j]+'</option>'; 
+		         } 
+		      } 
+		   } 
+		   hopeHtml2_2 += '</select>'; 
+		   document.getElementById("hope_plc2_2").innerHTML = hopeHtml2_2; 
+		}
 		
+		//submit
+		function goCreateDetail(){
+			
+			//휴대폰번호
+			var vol_phone_1_1 = document.getElementById("vol_phone_1_1").value;
+			var vol_phone_1_2 = document.getElementById("vol_phone_1_2").value;
+			var vol_phone_1_3 = document.getElementById("vol_phone_1_3").value;
+			document.getElementById("vol_phone_1").value = vol_phone_1_1 + "-" + vol_phone_1_2 + "-" + vol_phone_1_3;
+			
+			//유선전화번호
+			var vol_phone_2_1 = document.getElementById("vol_phone_2_1").value;
+			var vol_phone_2_2 = document.getElementById("vol_phone_2_2").value;
+			var vol_phone_2_3 = document.getElementById("vol_phone_2_3").value;
+			document.getElementById("vol_phone_2").value = vol_phone_2_1 + "-" + vol_phone_2_2 + "-" + vol_phone_2_3;
+			
+			//체크된 희망요일 (요일,요일)
+			var days = "";
+			if(document.getElementById("mon").checked){ days += "1"; }
+			if(document.getElementById("tue").checked){ days += "2"; }
+			if(document.getElementById("wen").checked){ days += "3"; }
+			if(document.getElementById("thu").checked){ days += "4"; }
+			if(document.getElementById("fri").checked){ days += "5"; }
+			if(document.getElementById("sat").checked){ days += "6"; }
+			if(document.getElementById("sun").checked){ days += "7"; }
+			document.getElementById("vol_hope_date").value = days.split("", days.length);
+			
+			//선택된 봉사희망지역(소속센터) (1차선택,2차선택)
+			var hope_cen_1 = $("#hopeSelect_1 option").index($("#hopeSelect_1 option:selected"));
+			var hope_cen_2 = $("#hopeSelect_2 option").index($("#hopeSelect_2 option:selected"));
+			document.getElementById("vol_hope_center_code").value = hope_cen_1+","+hope_cen_2;
+			
+			//봉사희망지역(선택1)
+			var hope_cen1_1 = $("#hopeSelect1_1 option").index($("#hopeSelect1_1 option:selected"));
+			var hope_cen1_2 = $("#hopeSelect1_2 option").index($("#hopeSelect1_2 option:selected"));
+			document.getElementById("vol_hope_plc_1").value = hope_cen1_1+","+hope_cen1_2;
+			
+			//봉사희망지역(선택2)
+			var hope_cen2_1 = $("#hopeSelect2_1 option").index($("#hopeSelect2_1 option:selected"));
+			var hope_cen2_2 = $("#hopeSelect2_2 option").index($("#hopeSelect2_2 option:selected"));
+			document.getElementById("vol_hope_plc_2").value = hope_cen2_1+","+hope_cen2_2;
+			
+			step5_voCreateMemberForm.submit();
+		}
 		
 	</script>
 </head>
@@ -122,7 +183,7 @@
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">휴대폰번호</td>
 				<td width="500" height="8" align="left">
-					<select name = "vol_phone_1_1">
+					<select name = "vol_phone_1_1" id = "vol_phone_1_1">
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="016">016</option>
@@ -139,7 +200,7 @@
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">유선전화번호</td>
 				<td width="500" height="8" align="left">
-					<select name = "vol_phone_2_1">
+					<select name = "vol_phone_2_1" id = "vol_phone_2_1">
 						<option value="02">02</option>
 						<option value="031">031</option>
 						<option value="032">032</option>
