@@ -131,11 +131,6 @@ public class CreateDemander {
 	//회원가입.수요처 detail - DB update
 	@RequestMapping("/deCreateMemberDetail.do")
 	public String deCreateMemberDetail(HttpServletRequest request, @ModelAttribute("DemanderDTO") DemanderDTO dto) throws Exception{
-		
-		System.out.println(dto.getDem_phone());
-		System.out.println(dto.getDem_fax());
-		System.out.println(dto.getDem_cha_phone());
-		
 		//DB update
 		sqlMapper.update("Demander.updateDemanderDetail", dto);
 		return "redirect:/step6_complete.do";
