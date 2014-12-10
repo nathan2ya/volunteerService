@@ -132,25 +132,9 @@ public class CreateDemander {
 	@RequestMapping("/deCreateMemberDetail.do")
 	public String deCreateMemberDetail(HttpServletRequest request, @ModelAttribute("DemanderDTO") DemanderDTO dto) throws Exception{
 		
-		//사무실연락처
-		String dem_phone = request.getParameter("dem_phone_1")+"-"+
-						   request.getParameter("dem_phone_2")+"-"+
-						   request.getParameter("dem_phone_3");
-		
-		//FAX
-		String dem_fax = request.getParameter("dem_fax_1")+"-"+
-						 request.getParameter("dem_fax_2")+"-"+
-						 request.getParameter("dem_fax_3");
-		
-		//담당자연락처
-		String dem_cha_phone = request.getParameter("dem_cha_phone_1")+"-"+
-							   request.getParameter("dem_cha_phone_1")+"-"+
-							   request.getParameter("dem_cha_phone_1");
-		
-		//DTO set
-		dto.setDem_phone(dem_phone);
-		dto.setDem_fax(dem_fax);
-		dto.setDem_cha_phone(dem_cha_phone);
+		System.out.println(dto.getDem_phone());
+		System.out.println(dto.getDem_fax());
+		System.out.println(dto.getDem_cha_phone());
 		
 		//DB update
 		sqlMapper.update("Demander.updateDemanderDetail", dto);

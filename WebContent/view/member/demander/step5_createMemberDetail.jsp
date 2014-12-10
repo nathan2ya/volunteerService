@@ -14,6 +14,24 @@
 		
 		//submit
 		function goCreateDetail(){
+			//사무실연락처
+			var dem_phone_1 = document.getElementById("dem_phone_1").value;
+			var dem_phone_2 = document.getElementById("dem_phone_2").value;
+			var dem_phone_3 = document.getElementById("dem_phone_3").value;
+			document.getElementById("dem_phone").value = dem_phone_1 + "-" + dem_phone_2 + "-" + dem_phone_3;
+			
+			//FAX
+			var dem_fax_1 = document.getElementById("dem_fax_1").value;
+			var dem_fax_2 = document.getElementById("dem_fax_2").value;
+			var dem_fax_3 = document.getElementById("dem_fax_3").value;
+			document.getElementById("dem_fax").value = dem_fax_1 + "-" + dem_fax_2 + "-" + dem_fax_3;
+			
+			//담당자연락처
+			var dem_cha_phone_1 = document.getElementById("dem_cha_phone_1").value;
+			var dem_cha_phone_2 = document.getElementById("dem_cha_phone_2").value;
+			var dem_cha_phone_3 = document.getElementById("dem_cha_phone_3").value;
+			document.getElementById("dem_cha_phone").value = dem_cha_phone_1 + "-" + dem_cha_phone_2 + "-" + dem_cha_phone_3;
+			
 			step5_deCreateMemberForm.submit();
 		}
 		
@@ -36,7 +54,7 @@
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">사무실연락처</td>
 				<td width="500" height="8" align="left">
-					<select name = "dem_phone_1">
+					<select name = "dem_phone_1" id = "dem_phone_1">
 						<option value="02">02</option>
 						<option value="031">031</option>
 						<option value="032">032</option>
@@ -68,8 +86,8 @@
 						<option value="018">018</option>
 						<option value="019">019</option>
 					</select>
-					<input type="text" name="dem_phone_2" id="vol_phone_2_2" size="6" maxlength="4" />
-					<input type="text" name="dem_phone_3" id="vol_phone_2_3" size="6" maxlength="4" />
+					<input type="text" name="dem_phone_2" id="dem_phone_2" size="6" maxlength="4" />
+					<input type="text" name="dem_phone_3" id="dem_phone_3" size="6" maxlength="4" />
 					<input type="hidden" name="dem_phone" id="dem_phone" value=""/>
 				</td>
 			</tr>
@@ -87,7 +105,7 @@
 			<tr>
 				<td width="200" height="8" align="right" bgcolor="#D5D5D5">담당자연락처</td>
 				<td width="500" height="8" align="left">
-					<select name = "dem_cha_phone_1">
+					<select name="dem_cha_phone_1" id="dem_cha_phone_1">
 						<option value="02">02</option>
 						<option value="031">031</option>
 						<option value="032">032</option>
