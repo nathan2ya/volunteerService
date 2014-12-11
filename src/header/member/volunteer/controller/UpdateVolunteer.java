@@ -47,7 +47,7 @@ public class UpdateVolunteer {
 	//.DB커넥트 생성자 버전 끝
 	
 	//회원수정(기본).자원봉사자
-	@RequestMapping("/voMyInformation_bsc.do")
+	@RequestMapping("/voMyInformationForm_bsc.do")
 	public String voMyInformation(HttpServletRequest request, HttpSession session) throws Exception{
 		
 		String session_volunteerId = (String) session.getAttribute("session_volunteerId");

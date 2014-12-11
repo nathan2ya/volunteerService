@@ -19,6 +19,8 @@
 
 <body>
 
+	<a href="" >기본정보</a>
+	<a href="" >자원봉사정보</a>
 	
 </body>
 </html>

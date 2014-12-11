@@ -25,9 +25,9 @@
 		
 		//아래의 url 2가지는 향후 myPage 1번째 메뉴 annotation으로 변경될 예정
 		if(memberType == 'vo'){
-			url = "/volunteerService/voMyInformation_bsc.do";
+			url = "/volunteerService/voMyInformationForm_bsc.do";
 		}else{
-			url = "/volunteerService/deMyInformation_bsc.do";
+			url = "/volunteerService/deMyInformationForm_bsc.do";
 		}
 		location.href=url;
 	}
