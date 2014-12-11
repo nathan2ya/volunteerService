@@ -233,7 +233,6 @@
 		
 	</form>
 	
-	
 	<form name="vo" action="/volunteerService/step2_voStipulation.do" method="post">
 		<input type="hidden" name="vol_name" id="vol_name"/>
 		<input type="hidden" name="vol_email" id="vol_email"/>
